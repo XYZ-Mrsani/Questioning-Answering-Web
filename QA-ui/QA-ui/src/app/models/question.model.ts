@@ -2,6 +2,6 @@ export class Question {
     _id: string;
     uid: string;
     name: string;
-    questtion: string;
+    question: string;
     date: string;
 }
