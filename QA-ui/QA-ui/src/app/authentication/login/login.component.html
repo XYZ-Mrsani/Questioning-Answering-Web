@@ -26,7 +26,7 @@
 
                     <div class="card bg-glass">
                         <div class="card-body px-4 py-5 px-md-5">
-                            <form>
+                            <form class="needs-validation">
                                 <!-- 2 column grid layout with text inputs for the first and last names -->
                                 <div class="row">
 
@@ -46,17 +46,23 @@
                                 <div class="form-outline mb-4">
                                     <input type="email" name="email" id="form3Example3" class="form-control email" />
                                     <label class="form-label" for="form3Example3">Email Address</label>
+                                    <div class="valid-feedback">
+                                        Email Address should not be empty.
+                                      </div>
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password" name="password" id="form3Example4" class="form-control pass" />
+                                    <input type="password" name="password" id="form3Example4" class="form-control password" />
                                     <label class="form-label" for="form3Example4">Password</label>
+                                    <div class="valid-feedback">
+                                        Password should not be empty.
+                                      </div>
                                 </div>
 
 
                                 <!-- Submit button -->
-                                <button type="submit" class="btn btn-primary btn-block mb-4" id="signIn" onclick="opensweetalertdng()">
+                                <button type="button" class="btn btn-primary btn-block mb-4 signIn" onclick="show()">
                                     Sign In
                                 </button>
 
