@@ -1,0 +1,230 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: #f3f5f9;
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar {
+    width: 200px;
+    height: 100%;
+    background: #333333;
+    padding: 30px 0px;
+    position: fixed;
+}
+
+.wrapper .sidebar h2 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.wrapper .sidebar ul li {
+    padding: 15px;
+    /*border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);*/
+}
+
+.wrapper .sidebar ul {
+    margin-left: -35px;
+}
+
+.wrapper .sidebar ul li a {
+    color: whitesmoke;
+    display: block;
+    text-decoration: none;
+}
+
+.wrapper .sidebar ul li a .fas {
+    width: 25px;
+}
+
+.wrapper .sidebar ul li:hover {
+    background-color: #00569d;
+}
+
+.wrapper .sidebar ul li:hover a {
+    color: #fff;
+}
+
+.wrapper .sidebar .social_media {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.wrapper .sidebar .social_media a {
+    display: block;
+    width: 40px;
+    background: lightgray;
+    height: 40px;
+    line-height: 45px;
+    text-align: center;
+    margin: 0 5px;
+    color: #2986cc;
+    border-radius: 5px;
+}
+
+.wrapper .main_content {
+    width: 1400px;
+    margin-left: 200px;
+}
+
+.wrapper .main_content .header {
+    padding: 20px;
+    background: #f3f5f9;
+    color: #717171;
+    border-bottom: 2px solid #e0e4e8;
+}
+
+.wrapper .main_content .info {
+    margin: 20px;
+    line-height: 25px;
+    float: left;
+}
+
+.wrapper .main_content .info div {
+    margin-bottom: 20px;
+}
+
+@media (max-height: 500px) {
+    .social_media {
+        display: none !important;
+    }
+}
+
+.navbar {
+    background-color: #00569d;
+}
+
+.img-logo {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#dpm-left {
+    margin-left: -50px;
+}
+
+.sbox {
+    width: 700px;
+    margin-left: 90px;
+}
+
+.QA:hover {
+    background-color: #e8e7e7;
+}
+
+.card-body {
+    color: #000;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.wi:hover{
+    background-color: #e8e7e7;
+}
+
+.husername {
+    display: inline;
+}
+
+
+.qr {
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.qr1-a {
+    margin: 10px;
+    font-size: 20px;
+}
+
+.qr2-a {
+    margin-right: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    font-size: 20px;
+}
+/*
+.row {
+    display: flex;
+    /* equal height of the children *
+    align-items: center;
+    justify-content: center;
+
+}*/
+
+
+.col {
+    /*flex: 1; /* additionally, equal width */
+    margin: 15px;
+    padding: 1em;
+    border: solid;
+}
+/*
+div.col:nth-of-type(1) {
+    flex: 0 1 20px;
+    /* Specify a fixed width, but allow it to shrink if flex container isn't large enough to accommodate it *
+}*
+
+div.col:nth-of-type(2) {
+    flex: 0 1 20px;
+    /* Specify a fixed width, but allow it to shrink if flex container isn't large enough to accommodate it 
+}*/
+
+.col:hover {
+    background-color: #e8e7e7;
+    cursor: pointer;
+}
+
+.btn-ask {
+    text-align: center;
+    margin-top:200px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.imgdesc {
+    width: 500px;
+}
+.qlink{
+    color: #000;
+    text-decoration: none;
+}
+.qlink:hover{
+    color: red;
+}
+
+
+@media only screen and (max-width:500px) {
+
+    /* For mobile phones: */
+    .wrapper,
+    .main_content {
+        width: 100%;
+    }
+}

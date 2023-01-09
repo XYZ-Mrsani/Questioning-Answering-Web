@@ -1,0 +1,35 @@
+.cardQA{
+    font-size: 16px;
+    font-weight: normal;
+    text-align: justify;
+}
+
+.husername {
+    display: inline;
+}
+
+.info {
+    margin-right: 20px;
+    padding: 20px;
+    width: 97%;
+}
+
+.qr {
+    float: left;
+    margin: 50px;
+    padding: 10px;
+    text-align: center;
+}
+
+.qr1-a {
+    margin: 10px;
+    font-size: 20px;
+}
+
+.qr2-a {
+    margin-right: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    font-size: 20px;
+}

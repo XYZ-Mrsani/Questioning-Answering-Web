@@ -1,0 +1,32 @@
+.outer {
+    width: auto;
+    height: auto;
+    background-size: cover;
+  }
+
+  .middle {
+    width: 780px;
+    height: auto;
+    display: flex;
+    margin: 20px;
+
+  }
+
+  .fleft {
+    float: left;
+  }
+
+  .middle1 {
+    width: 450px;
+    height: auto;
+    float: right;
+    margin: 20px;
+    background-image: url(src\assets\images\QA.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .card {
+    height: auto;
+    width: 800px;
+  }
