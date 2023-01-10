@@ -23,6 +23,7 @@ router.post('/add', function (req, res, next) {
           res.send({ status: 500, message: 'Unable to add newuser' });
       } else {
           res.send({ status: 200, message: 'newuser added successfully', newuserDetails: newuserObj });
+          
       }
   });
 });

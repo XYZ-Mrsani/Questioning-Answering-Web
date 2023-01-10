@@ -1,4 +1,4 @@
-$(function () {
+/*$(function () {
     $(".signIn").click(function () {
 
         let email = $(".email").val();

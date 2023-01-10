@@ -9,8 +9,12 @@ export class UserService {
 
   constructor(private httpClient : HttpClient) { }
 
-  addUser(){
+  addUser(email, username, password){
     let url = environment.NEWUSER_BASE_URL+environment.USER.ADD_USER;
-    return this.httpClient.get(url);
+    return this.httpClient.post(url,{
+      email,
+      username,
+      password
+    });
   }
 }
