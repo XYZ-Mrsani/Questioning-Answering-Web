@@ -7,7 +7,7 @@ import { QAHomeComponent } from './qahome/qahome.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
-  {path:'register',component:NewUserComponent},
+  {path:'signup',component:NewUserComponent},
   {path:'logout',component:LogoutComponent},
   {path:'',component:QAHomeComponent},
   

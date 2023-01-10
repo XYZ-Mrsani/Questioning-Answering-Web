@@ -41,7 +41,7 @@
 
                         <div class="card bg-glass">
                             <div class="card-body px-4 py-5 px-md-5">
-                                <form>
+                                <form><!--(submit)="addUser(addUserForm)" #addUserForm="ngForm"-->
                                     <!-- 2 column grid layout with text inputs for the first and last names -->
                                     <div class="row">
 
@@ -54,7 +54,7 @@
                                         <div class="col-md-12 mb-4">
                                             <div class="form-outline">
                                                 <input type="email" name="email" id="form3Example2"
-                                                    class="form-control email" />
+                                                    class="form-control email"/>
                                                 <label class="form-label" for="form3Example2">Email Address</label>
                                             </div>
                                         </div>
@@ -62,29 +62,29 @@
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
-                                        <input type="text" name="username" id="form3Example3" class="form-control uname" />
+                                        <input type="text" name="username" id="form3Example3" class="form-control uname"/>
                                         <label class="form-label" for="form3Example3">Username</label>
                                     </div>
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
                                         <input type="password" name="password" id="form3Example4"
-                                            class="form-control pass" />
+                                            class="form-control pass"/>
                                         <label class="form-label" for="form3Example4">Password</label>
                                     </div>
 
                                     <!-- Confirm Password input -->
                                     <div class="form-outline mb-4">
                                         <input type="password" name="conpassword" id="form3Example4"
-                                            class="form-control conpass" />
+                                            class="form-control conpass"/>
                                         <label class="form-label" for="form3Example4">Confirm Password</label>
                                     </div>
 
 
                                     <!-- Submit button -->
-                                    <button type="button" class="btn btn-primary btn-block mb-4 signUp">
+                                    <a  type="submit" [routerLink]="'/questions'" class="btn btn-primary btn-block mb-4 signUp">
                                         Sign up
-                                    </button>
+                                    </a>
 
                                     <!-- Register buttons -->
                                     <div class="text-center">

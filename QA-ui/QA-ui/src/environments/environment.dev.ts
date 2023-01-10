@@ -7,6 +7,6 @@ export const environment = {
     },
     NEWUSER_BASE_URL: 'http://localhost:3000/users/',
     USER: {
-        ADD_USER:'register'
+        ADD_USER:'add'
     }
 };

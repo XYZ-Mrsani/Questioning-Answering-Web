@@ -60,9 +60,8 @@ $(function () {
                 'Confirm Password Not Matched', '',
                 'warning'
             )
-        }else
-        {
-            window.location.href = "http://localhost:4200/login";
+        }else{
+            (submit)="addUser(addUserForm)";
         }
     });
 });

@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 const newuserModel = require('../models/newuser.model');
 
 /* create new user. */
-router.post('/register', function (req, res, next) {
+router.post('/add', function (req, res, next) {
 
   let email = req.body.email;
   let username = req.body.username;
@@ -15,7 +15,7 @@ router.post('/register', function (req, res, next) {
   let newuserObj = new newuserModel({
       email: email,
       username: username,
-      password: password
+      password: password,
   });
 
   newuserObj.save(function (err, newuserObj) {
