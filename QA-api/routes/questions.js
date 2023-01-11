@@ -25,9 +25,9 @@ router.get('/list', function (req, res, next) {
 /* GET details of a specific Questions. */
 router.get('/view', function (req, res, next) {
 
-    const userId = req.query.userId;
+    
 
-    questionModel.findById(userId, function (err, questionResponse) {
+    questionModel.find({"uid":req.query.uid}, function (err, questionResponse) {
         if (err) {
             res.send({ status: 500, message: 'Unable to find Question' });
         } else {

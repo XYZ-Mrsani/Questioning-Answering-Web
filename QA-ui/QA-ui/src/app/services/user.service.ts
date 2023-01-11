@@ -17,4 +17,12 @@ export class UserService {
       password
     });
   }
+
+  login(username,password){
+    let url = environment.NEWUSER_BASE_URL+environment.USER.LOGIN;
+    return this.httpClient.post(url,{
+      username,
+      password
+    });
+  }
 }
