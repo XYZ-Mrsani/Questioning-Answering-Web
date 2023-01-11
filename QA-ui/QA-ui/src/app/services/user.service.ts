@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.dev';
+import { Token } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  http: HttpClient;
 
   constructor(private httpClient : HttpClient) { }
 
@@ -24,5 +26,13 @@ export class UserService {
       username,
       password
     });
+  }
+
+  getProfile(){
+    let url = environment.NEWUSER_BASE_URL+environment.USER.PROFILE;
+    let headers = {
+      'Authorization':"Bearer" + localStorage.getItem('token')
+    }
+    return this.http.get(url, {headers:headers});
   }
 }

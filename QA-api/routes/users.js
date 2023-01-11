@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const checkAuth = require("../check_auth");
 
 var mongoose = require('mongoose');
 const newuserModel = require('../models/newuser.model');
@@ -61,14 +62,15 @@ router.post('/login', function (req, res, next) {
     });
 });
 
-router.get('/profile', (req, res)=> {
-    const username = "saniya";
-   /*newuserModel.find({username: username}).exec().then((result)=>{
+router.get('/profile', checkAuth, (req, res)=> {
+    const username = req.userData.userName;
+
+   /*newuserModel.find({"username": username}).exec().then((result)=>{
     res.json({success: true, data:result});
     }).catch(err=>{
         res.json({success: false, message:"error"});
     });*/
-    newuserModel.find({username:username}, function (err, profileResponse) {
+    newuserModel.find({"username":username}, function (err, profileResponse) {
         if (err) {
             res.send({ status: 500, message: 'Unable to find Question' });
         } else {
