@@ -42,18 +42,22 @@ router.post('/login', function (req, res, next) {
     newuserModel.find({ username: req.body.username }).exec().then((result) => {
         if (result.length < 1) {
 
-            return res.send({ success: false, message: "user not found" });
+            return res.json({ success: false, message: "user not found" });
         }
         const user = result[0];
         bcrypt.compare(req.body.password,user.password,(err,ret)=>{
             if(ret){
-                return res.send({ success: true, message: "Login Successful" });
+                return res.json({ success: true, messages: "Login Successful" });
             }else{
-                res.send({ success: false, message: "Password does not match" });
+                res.json({ success: false, message: "Password does not match" });
             }
         });
 
     });
+});
+
+router.get('/profile', function (req, res, next) {
+   
 });
 
 module.exports = router;

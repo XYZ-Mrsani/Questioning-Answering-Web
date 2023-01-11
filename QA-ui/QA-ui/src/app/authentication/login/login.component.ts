@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { data } from 'jquery';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -10,10 +11,11 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private router:Router) { }
   ngOnInit(): void {
 
   }
+  dataLog:any={};
 
   loginUser(event) {
     event.preventDefault();
@@ -33,9 +35,23 @@ export class LoginComponent implements OnInit {
           'warning'
       )
   }else{
-    this.userService.login(username,password).subscribe(data =>{
+    this.userService.login(username,password).subscribe((data) =>{
       //window.location.href="http://localhost:4200/";
-      console.log(data);
+      this.dataLog=data;
+
+      if(this.dataLog.success){
+        this.router.navigate(['/QAHome']);
+      }else{
+        Swal.fire(
+          this.dataLog.message, '',
+          'error'
+      )
+      }
+    }, err=>{
+      Swal.fire(
+        'Loin Failed', '',
+        'error'
+    )
     });
   }
   }
