@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 var mongoose = require('mongoose');
 const newuserModel = require('../models/newuser.model');
@@ -47,7 +48,11 @@ router.post('/login', function (req, res, next) {
         const user = result[0];
         bcrypt.compare(req.body.password,user.password,(err,ret)=>{
             if(ret){
-                return res.json({ success: true, messages: "Login Successful" });
+                const playload ={
+                    userName : user.username
+                }
+                const token = jwt.sign(playload,"webBatch")
+                return res.json({ success: true, token:token, messages: "Login Successful" });
             }else{
                 res.json({ success: false, message: "Password does not match" });
             }
@@ -56,8 +61,20 @@ router.post('/login', function (req, res, next) {
     });
 });
 
-router.get('/profile', function (req, res, next) {
-   
+router.get('/profile', (req, res)=> {
+    const username = "saniya";
+   /*newuserModel.find({username: username}).exec().then((result)=>{
+    res.json({success: true, data:result});
+    }).catch(err=>{
+        res.json({success: false, message:"error"});
+    });*/
+    newuserModel.find({username:username}, function (err, profileResponse) {
+        if (err) {
+            res.send({ status: 500, message: 'Unable to find Question' });
+        } else {
+            res.send({ status: 200, results: profileResponse });
+        }
+    });
 });
 
 module.exports = router;
