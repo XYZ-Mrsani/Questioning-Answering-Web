@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
       if(this.dataLog.success){
         localStorage.setItem('token', this.dataLog.token);
-        this.router.navigate(['/QAHome']);
+        this.router.navigate(['/profile']);
       }else{
         Swal.fire(
           this.dataLog.message, '',

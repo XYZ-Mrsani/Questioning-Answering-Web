@@ -8,6 +8,9 @@ var mongoose = require('mongoose');
 const newuserModel = require('../models/newuser.model');
 const { use } = require('./questions');
 
+const date = new Date();
+let cdate = date.getFullYear();
+
 /* create new user. */
 router.post('/add', function (req, res, next) {
     bcrypt.hash(req.body.password, 10, (err, hash) => {
@@ -23,6 +26,9 @@ router.post('/add', function (req, res, next) {
                 email: email,
                 username: username,
                 password: hash,
+                title: 'No Title Added',
+                aboutme: 'No About Added',
+                date: cdate
             });
 
             newuserObj.save(function (err, newuserObj) {
@@ -65,16 +71,39 @@ router.post('/login', function (req, res, next) {
 router.get('/profile', checkAuth, (req, res)=> {
     const username = req.userData.userName;
 
-   /*newuserModel.find({"username": username}).exec().then((result)=>{
+   newuserModel.find({"username": username}).exec().then((result)=>{
     res.json({success: true, data:result});
     }).catch(err=>{
         res.json({success: false, message:"error"});
-    });*/
-    newuserModel.find({"username":username}, function (err, profileResponse) {
+    });
+    /*newuserModel.find({"username":username}, function (err, profileResponse) {
         if (err) {
             res.send({ status: 500, message: 'Unable to find Question' });
         } else {
             res.send({ status: 200, results: profileResponse });
+        }
+    });*/
+});
+
+router.put('/update',function (req, res, next) {
+
+    const username = req.body.username;
+    let email = req.body.email;
+    let title = req.body.title;
+    let aboutme = req.body.aboutme;
+
+
+    let profileObj = {
+        email: email,
+        title: title,
+        aboutme: aboutme,
+    };
+
+    newuserModel.findOneAndUpdate(username, profileObj,{new:true}, function (err, profileResponse) {
+        if (err) {
+            res.send({ status: 500, message: 'Unable to update the profile' });
+        } else {
+            res.json(profileResponse); 
         }
     });
 });

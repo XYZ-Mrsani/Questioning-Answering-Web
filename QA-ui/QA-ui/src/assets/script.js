@@ -1,28 +1,32 @@
-/*$(function () {
-    $(".signIn").click(function () {
+let toggle = button => {
+    if (!localStorage.getItem('token')) {
+        window.location.href = "http://localhost:4200/login";
+    }
+}
 
-        let email = $(".email").val();
-        let password = $(".password").val();
+    //let element1 = document.getElementById("etitle");
+    //let element2 = document.getElementById("eabout");
+    //let element3 = document.getElementById("eemail");
+    //let element4 = document.getElementById("eusername");
 
-        if (email == "") {
-            Swal.fire(
-                'Email Address Should Not Be Empty', '',
-                'warning'
-            )
-        }
-        else if (password == "") {
-            Swal.fire(
-                'Password Should Not Be Empty', '',
-                'warning'
-            )
-        }else
-        {
-            window.location.href = "http://localhost:4200/register";
-        }
-    });
-});
+    //let hidden1 = element1.getAttribute("hidden");
+    //let hidden2 = element2.getAttribute("hidden");
+    //let hidden3 = element3.getAttribute("hidden");
+    //let hidden4 = element4.getAttribute("hidden");
+
+/*let ebtn = document.getElementById("abtn");
+let hidden = ebtn.getAttribute("hidden");
+
+if (!hidden) {
+    ebtn.removeAttribute("hidden");
+    //element2.removeAttribute("hidden");
+    //element3.removeAttribute("hidden");
+    //element4.removeAttribute("hidden");
+ }*/
+        //ebtn.setAttribute("hidden", "hidden");
 
 
+/*
 $(function () {
     $(".signUp").click(function () {
 

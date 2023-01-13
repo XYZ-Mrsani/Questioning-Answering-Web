@@ -7,7 +7,6 @@ import { Token } from '@angular/compiler';
   providedIn: 'root'
 })
 export class UserService {
-  http: HttpClient;
 
   constructor(private httpClient : HttpClient) { }
 
@@ -30,9 +29,33 @@ export class UserService {
 
   getProfile(){
     let url = environment.NEWUSER_BASE_URL+environment.USER.PROFILE;
-    let headers = {
-      'Authorization':"Bearer" + localStorage.getItem('token')
+    const headers = {
+      'Authorization':"Bearer " + localStorage.getItem('token')
     }
-    return this.http.get(url, {headers:headers});
+    return this.httpClient.get(url, {headers:headers});
+  }
+
+  updateProfile(email, title, aboutme){
+    let url = environment.NEWUSER_BASE_URL+environment.USER.UPDATE;
+    const headers = {
+      'Authorization':"Bearer " + localStorage.getItem('token')
+    }
+    return this.httpClient.put(url,{ 
+      headers: new HttpHeaders(
+        {
+          'Authorization': 'Bearer ' + localStorage.getItem("token"),
+          'Content-Type': 'application/json',
+        }
+      ),
+      email,
+      title,
+      aboutme
+    }
+    );
+  }
+
+  updateData(data:any,id: string){
+    let url = environment.NEWUSER_BASE_URL+environment.USER.UPDATE+id;
+    return this.httpClient.put(url,data);
   }
 }

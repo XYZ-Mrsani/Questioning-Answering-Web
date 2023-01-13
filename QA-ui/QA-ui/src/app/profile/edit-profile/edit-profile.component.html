@@ -1,0 +1,48 @@
+<div class="container rounded bg-white mt-4 mb-3" style="width: 800px;">
+    <div class="row" *ngFor="let data of profileDetails">
+      <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+            width="150px"
+            src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+            class="font-weight-bold">{{data.username}}</span><span class="text-black-50">{{data.date}}</span><span>
+          </span></div>
+      </div>
+      <div class="col-md-5 border-right">
+        <div class="p-3 py-5">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right">Profile</h4>
+          </div>
+          <form (submit)="updateUser($event)"><!--(submit)="updateUser($event)"-->
+            <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">User Name</label><label style="width: auto; margin: 5px;"
+                  class="form-control" placeholder="About me" >{{data.username}}</label></div>
+            </div>
+  
+            <div class="row mt-3">
+            
+              <!--Edit email-->
+              <div class="col-md-12"  id="eemail"><label class="labels">Edit Email</label>
+                <input type="text" name="email" id="email" style="width: 300px; margin: 5px;"  class="form-control email"
+                  value="{{data.email}}">
+              </div>
+
+              <!--Edit title-->
+              <div class="col-md-12" id="etitle"><label class="labels">Edit Title</label>
+                <input type="text" id="title" name="title" style="width: 300px; margin: 5px;"  class="form-control title"
+                  value="{{data.title}}">
+              </div>
+  
+              <div class="row mt-3">
+                <div class="col-md-6"><label class="labels">About Me</label><input type="text"  name="aboutme" id="aboutme" style="width: 500px; margin: 5px;"
+                    class="form-control about" placeholder="About me" value="{{data.aboutme}}"></div>
+              </div>
+  
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary" style="margin: 5px; width: 80px;" id="editbtn">Update</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>

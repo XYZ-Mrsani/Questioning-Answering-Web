@@ -1,37 +1,47 @@
 <div class="container rounded bg-white mt-4 mb-3" style="width: 800px;">
-    <div class="row">
-      <div class="col-md-3 border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-            width="150px"
-            src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-            class="font-weight-bold">Sandeepa</span><span class="text-black-50">2022</span><span> </span></div>
-      </div>
-      <div class="col-md-5 border-right">
-        <div class="p-3 py-5">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h4 class="text-right">Profile</h4>
-          </div>
+  <div class="row" *ngFor="let data of profileDetails">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+          width="150px"
+          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+          class="font-weight-bold">{{data.username}}</span><span class="text-black-50">{{data.date}}</span><span>
+        </span></div>
+    </div>
+    <div class="col-md-5 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Profile</h4>
+        </div>
+        <form><!--(submit)="updateUser($event)"-->
           <div class="row mt-2">
-            <div class="col-md-6"><label class="labels">User Name</label><input type="text" class="form-control"
-                placeholder="first name" value="Sandeepa"></div>
+            <div class="col-md-6"><label class="labels">User Name</label><label style="width: auto; margin: 5px;"
+                class="form-control" placeholder="About me">{{data.username}}</label></div>
           </div>
+
           <div class="row mt-3">
-            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control"
-                placeholder="Enter Your Email" value="sandeepa@gmail.com"></div>
-            <div class="col-md-12"><label class="labels">Title</label><label style="width: 500px;" class="form-control"
-                placeholder="enter address line 1">Software Engineer, Full Stack Dev, UI Designer</label></div>
+            <div class="col-md-12"><label class="labels">Email</label><label style="width: auto; margin: 5px;"
+                class="form-control" placeholder="About me">{{data.email}}</label></div>
+
+
+            <div class="col-md-12"><label class="labels">Title</label><label style="width: auto; margin: 5px;"
+                class="form-control" placeholder="About me">{{data.title}}</label></div>
+
+
             <div class="row mt-3">
-              <div class="col-md-6"><label class="labels">About Me</label><label style="width: 500px;"
-                  class="form-control" placeholder="About me">“Software and cathedrals are much the same; first we build
-                  them, then we pray.” by Anonymous. “Any fool can write code that a computer can understand. Good
-                  programmers write code that humans can understand.” by Martin Fowler. “Real programmers can write
-                  assembly code in any language.”</label></div>
+              <div class="col-md-6"><label class="labels">About Me</label><label style="width: 500px; margin: 5px;"
+                  class="form-control" placeholder="About me">{{data.aboutme}}</label></div>
             </div>
+
           </div>
           <div class="row mt-4">
-            <div class="col-md-12"><button class="btn btn-primary" style="margin: 10px;">Update</button><button class="btn btn-danger">Delete</button></div>
+            <div class="col-md-12">
+              <a class="btn btn-primary" style="margin: 5px; width: 80px;" id="editbtn" [routerLink]="['edit',data.username]">Edit</a>
+              <button class="btn btn-danger" style="margin: 5px; width: 80px;">Delete</button>
+              <a class="btn btn-danger" style="margin: 5px; width: 80px;" href="logout">Logout</a>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
+</div>

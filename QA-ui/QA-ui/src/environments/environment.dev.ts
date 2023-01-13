@@ -9,6 +9,7 @@ export const environment = {
     USER: {
         ADD_USER:'add',
         LOGIN: 'login',
-        PROFILE: 'profile'
+        PROFILE: 'profile',
+        UPDATE: 'update'
     }
 };

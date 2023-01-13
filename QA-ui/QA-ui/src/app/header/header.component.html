@@ -23,13 +23,29 @@
           <button class="btn btn-primary" type="submit"><i class="fa fa-search fa-fw"></i></button>
         </form>
       </div>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <div hidden><div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav  mb-2 mb-lg-0">
           <li class="nav-item">
               <a class="nav-link text-white" [routerLink]="'/signup'">SignUp</a>
           </li>
           <li class="nav-item">
               <a class="nav-link text-white" href="login">Login</a>
+          </li>
+        </ul>
+
+      </div>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" >
+              saniya
+            </a>
+            <ul class="dropdown-menu" id="dpm-left">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">LogOut</a></li>
+            </ul>
           </li>
         </ul>
 
