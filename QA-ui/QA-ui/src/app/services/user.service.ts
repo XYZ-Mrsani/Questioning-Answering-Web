@@ -35,18 +35,18 @@ export class UserService {
     return this.httpClient.get(url, {headers:headers});
   }
 
-  updateProfile(email, title, aboutme){
-    let url = environment.NEWUSER_BASE_URL+environment.USER.UPDATE;
-    const headers = {
+  updateProfile(username,email, title, aboutme){
+    let url = environment.NEWUSER_BASE_URL+environment.USER.UPDATE+username;
+    /*const headers = {
       'Authorization':"Bearer " + localStorage.getItem('token')
-    }
+    }*/
     return this.httpClient.put(url,{ 
-      headers: new HttpHeaders(
+      /*headers: new HttpHeaders(
         {
           'Authorization': 'Bearer ' + localStorage.getItem("token"),
           'Content-Type': 'application/json',
         }
-      ),
+      ),*/
       email,
       title,
       aboutme
@@ -54,8 +54,9 @@ export class UserService {
     );
   }
 
-  updateData(data:any,id: string){
-    let url = environment.NEWUSER_BASE_URL+environment.USER.UPDATE+id;
-    return this.httpClient.put(url,data);
+  deleteProfile(username){
+    let url = environment.NEWUSER_BASE_URL+environment.USER.DELETE+username
+
+    return this.httpClient.delete(url);
   }
 }

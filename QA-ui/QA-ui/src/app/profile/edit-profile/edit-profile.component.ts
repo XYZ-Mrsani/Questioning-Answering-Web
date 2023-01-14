@@ -21,7 +21,7 @@ export class EditProfileComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    var logingStatus = localStorage.getItem('token')
+    var logingStatus = localStorage.getItem('token');
     if (!logingStatus) {
       window.location.href = "http://localhost:4200/login";
     } else {
@@ -46,12 +46,12 @@ export class EditProfileComponent implements OnInit {
     event.preventDefault();
     const target = event.target
 
-    //const username = target.querySelector(".uname").value
+    const username = target.querySelector(".username").value
     const email = target.querySelector(".email").value
     const title = target.querySelector(".title").value
     const about = target.querySelector(".about").value
-
-    this.userService.updateProfile(email, title, about).subscribe(data => {
+//console.log(username);
+    this.userService.updateProfile(username,email, title, about).subscribe(data => {
       Swal.fire(
         'Account Successfuly Updated', '',
         'success'

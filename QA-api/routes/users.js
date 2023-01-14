@@ -6,7 +6,6 @@ const checkAuth = require("../check_auth");
 
 var mongoose = require('mongoose');
 const newuserModel = require('../models/newuser.model');
-const { use } = require('./questions');
 
 const date = new Date();
 let cdate = date.getFullYear();
@@ -87,25 +86,40 @@ router.get('/profile', checkAuth, (req, res)=> {
 
 router.put('/update',function (req, res, next) {
 
-    const username = req.body.username;
+    let username = req.query.username;
     let email = req.body.email;
     let title = req.body.title;
     let aboutme = req.body.aboutme;
 
-
     let profileObj = {
+        username:username,
         email: email,
         title: title,
         aboutme: aboutme,
     };
 
-    newuserModel.findOneAndUpdate(username, profileObj,{new:true}, function (err, profileResponse) {
+    newuserModel.findOneAndUpdate({"username":username}, profileObj,{new:true}, function (err, profileResponse) {
         if (err) {
             res.send({ status: 500, message: 'Unable to update the profile' });
         } else {
             res.json(profileResponse); 
         }
     });
+   console.log(username);
+});
+
+
+router.delete('/delete', function (req, res, next) {
+    const username = req.query.username;
+
+   newuserModel.findOneAndDelete({"username":username}, function (err, deleteResponse) {
+        if (err) {
+            res.send({ status: 500, message: 'Unable to delete the user' });
+        } else {
+            res.send({ status: 200, message:'user deleted successfully', results: deleteResponse });
+        }
+    });
+    console.log(username);
 });
 
 module.exports = router;

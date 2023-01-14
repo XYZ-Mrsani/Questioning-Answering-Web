@@ -10,6 +10,7 @@ export const environment = {
         ADD_USER:'add',
         LOGIN: 'login',
         PROFILE: 'profile',
-        UPDATE: 'update'
+        UPDATE: 'update?username=',
+        DELETE:'delete?username='
     }
 };
