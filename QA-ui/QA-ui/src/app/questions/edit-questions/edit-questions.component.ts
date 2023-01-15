@@ -12,25 +12,30 @@ export class EditQuestionsComponent implements OnInit {
   questionResult: any;
   questionList: any;
 
-  constructor(private questionService: QuestionService){}
+  constructor(private questionService: QuestionService) { }
 
   ngOnInit(): void {
-    let id = window.location.pathname.split("/").pop();
-    this.questionService.getOneQuestion(id).subscribe(data => {
-      this.questionResult = data;
-      //this.questionList = Array.of(this.questionList.results)
-      this.questionList = Array.of(this.questionResult.results);
-      console.log(this.questionList);
-    });
+    var logingStatus = localStorage.getItem('token')
+    if (logingStatus) {
+      let id = window.location.pathname.split("/").pop();
+      this.questionService.getOneQuestion(id).subscribe(data => {
+        this.questionResult = data;
+        //this.questionList = Array.of(this.questionList.results)
+        this.questionList = Array.of(this.questionResult.results);
+        console.log(this.questionList);
+      });
+    } else {
+      window.location.href = "http://localhost:4200/login";
+    }
   }
 
-  updateQuestion(event){
+  updateQuestion(event) {
     event.preventDefault();
     const target = event.target
     let id = window.location.pathname.split("/").pop();
 
     const question = target.querySelector(".question").value;
-    this.questionService.editQuestion(id,question).subscribe(data =>{
+    this.questionService.editQuestion(id, question).subscribe(data => {
       Swal.fire(
         'Question Successfuly Updated', '',
         'success'
@@ -41,7 +46,7 @@ export class EditQuestionsComponent implements OnInit {
     });
   }
 
-  deleteQuestion(event){
+  deleteQuestion(event) {
     event.preventDefault();
     const target = event.target
     let id = window.location.pathname.split("/").pop();
@@ -60,10 +65,10 @@ export class EditQuestionsComponent implements OnInit {
           'Deleted!',
           'Question has been deleted.',
           'success'
-        ).then(() =>{
+        ).then(() => {
           this.questionService.deleteQuestion(id).subscribe((data: any) => {
 
-           window.location.href = "http://localhost:4200/questions/userquestion";
+            window.location.href = "http://localhost:4200/questions/userquestion";
           })
         })
       }
