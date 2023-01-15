@@ -5,7 +5,10 @@ export const environment = {
     QUESTION: {
         GET_ALL_QUESTIONS:'list',
         ADD_Question:'add?username=',
-        VIEW_QUESTION:'view?username='
+        VIEW_QUESTION:'view?username=',
+        VQ:'vq?id=',
+        UPDATE:'update?id=',
+        DELETE:'delete?id='
     },
     NEWUSER_BASE_URL: 'http://localhost:3000/users/',
     USER: {

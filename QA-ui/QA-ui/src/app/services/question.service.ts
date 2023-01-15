@@ -24,12 +24,19 @@ export class QuestionService {
     return this.httpClient.get(url);
   }
 
-  editQuestion(id, questionObj){
+  getOneQuestion(id){
+    let url = environment.QUESTION_BASE_URL+environment.QUESTION.VQ+id
+    return this.httpClient.get(url)
+  }
 
+  editQuestion(id, question){
+    let url = environment.QUESTION_BASE_URL+environment.QUESTION.UPDATE+id
+      return this.httpClient.put(url,{question});
   }
 
   deleteQuestion(id){
-
+    let url = environment.QUESTION_BASE_URL+environment.QUESTION.DELETE+id;
+    return this.httpClient.delete(url);
   }
 
   searchQuestion(keyword){

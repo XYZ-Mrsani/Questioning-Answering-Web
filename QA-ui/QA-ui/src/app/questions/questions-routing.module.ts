@@ -24,7 +24,8 @@ const routes: Routes = [
 },{
   path:'userquestion',
   children:[
-    {path:'edit/:id',component:EditQuestionsComponent}
+    {path:'edit/:id',component:EditQuestionsComponent},
+    {path:'delete/:id',component:DeleteQuestionsComponent}
   ]
 }
 ];

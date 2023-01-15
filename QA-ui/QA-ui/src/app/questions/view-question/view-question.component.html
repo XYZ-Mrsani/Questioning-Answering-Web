@@ -3,8 +3,8 @@
     <h6 class="card-title">{{question.username}} Asked: {{question.date}}</h6>
     {{question.question}}
 </div>
-<div class="card-footer">
-  <a class="btn btn-primary btnud" [routerLink]="['edit',question._id]">Update</a>
-  <a class="btn btn-danger btnud" [routerLink]="['delete/']">Delete</a>
+<div>
+  <button class="btn btn-primary btnud" [routerLink]="['edit',question._id]">Update</button>
+  <a class="btn btn-danger btnud" [routerLink]="['delete',question._id]">Delete</a>
 </div>
   </div>

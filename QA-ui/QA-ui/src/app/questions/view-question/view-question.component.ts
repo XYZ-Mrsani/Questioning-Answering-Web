@@ -27,5 +27,6 @@ export class ViewQuestionComponent implements OnInit {
       console.log(this.questionList);
     });
   }
+  
 
 }

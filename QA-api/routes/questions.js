@@ -36,6 +36,19 @@ router.get('/view', function (req, res, next) {
     });
 });
 
+router.get('/vq', function (req, res, next) {
+
+    
+
+    questionModel.findById(req.query.id, function (err, questionResponse) {
+        if (err) {
+            res.send({ status: 500, message: 'Unable to find Question' });
+        } else {
+            res.send({ status: 200, results: questionResponse });
+        }
+    });
+});
+
 /* Create new question. */
 router.post('/add', function (req, res, next) {
 
@@ -63,18 +76,18 @@ router.put('/update', function (req, res, next) {
 
    // const userId = req.body.userId;
     //let uid = req.body.uid;
-    let username = req.body.name;
+    ///let username = req.body.name;
     let question = req.body.question;
 
 
     let questionObj = {
        // uid: uid,
-        username: username,
+       // username: username,
         question: question,
         date: pdate
     };
 
-    questionModel.findByIdAndUpdate(userId, questionObj, function (err, questionResponse) {
+    questionModel.findByIdAndUpdate(req.query.id, questionObj, function (err, questionResponse) {
         if (err) {
             res.send({ status: 500, message: 'Unable to update the Question' });
         } else {
@@ -85,9 +98,8 @@ router.put('/update', function (req, res, next) {
 
 /* delete Qeustion. */
 router.delete('/delete', function (req, res, next) {
-    const userId = req.query.userId;
 
-    questionModel.findByIdAndDelete(userId, function (err, questionResponse) {
+    questionModel.findByIdAndDelete(req.query.id, function (err, questionResponse) {
         if (err) {
             res.send({ status: 500, message: 'Unable to delete the Question' });
         } else {
