@@ -157,6 +157,9 @@ body{
 .qr1-a {
     margin: 10px;
     font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
 }
 
 .qr2-a {
@@ -165,6 +168,9 @@ body{
     margin-bottom: 10px;
     margin-left: 18px;
     font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
 }
 /*
 .row {

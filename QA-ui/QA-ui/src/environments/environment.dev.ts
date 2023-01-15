@@ -3,7 +3,9 @@ export const environment = {
     BASE_URL: 'http://localhost:3000/',
     QUESTION_BASE_URL: 'http://localhost:3000/questions/',
     QUESTION: {
-        GET_ALL_QUESTIONS:'list'
+        GET_ALL_QUESTIONS:'list',
+        ADD_Question:'add?username=',
+        VIEW_QUESTION:'view?username='
     },
     NEWUSER_BASE_URL: 'http://localhost:3000/users/',
     USER: {

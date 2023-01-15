@@ -8,6 +8,8 @@ import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { EditQuestionsComponent } from './edit-questions/edit-questions.component';
 import { DeleteQuestionsComponent } from './delete-questions/delete-questions.component';
 import { SearchQuestionsComponent } from './search-questions/search-questions.component';
+import { FormsModule } from '@angular/forms';
+import { ViewQuestionComponent } from './view-question/view-question.component';
 
 
 @NgModule({
@@ -17,11 +19,13 @@ import { SearchQuestionsComponent } from './search-questions/search-questions.co
     AddQuestionsComponent,
     EditQuestionsComponent,
     DeleteQuestionsComponent,
-    SearchQuestionsComponent
+    SearchQuestionsComponent,
+    ViewQuestionComponent
   ],
   imports: [
     CommonModule,
-    QuestionsRoutingModule
+    QuestionsRoutingModule,
+    FormsModule
   ]
 })
 export class QuestionsModule { }

@@ -6,12 +6,14 @@ import { EditQuestionsComponent } from './edit-questions/edit-questions.componen
 import { ListQuestionsComponent } from './list-questions/list-questions.component';
 import { QuestionsComponent } from './questions.component';
 import { SearchQuestionsComponent } from './search-questions/search-questions.component';
+import { ViewQuestionComponent } from './view-question/view-question.component';
 
 const routes: Routes = [{ path: '', component: ListQuestionsComponent },
 { path: 'add', component: AddQuestionsComponent },
 { path: 'edit/:id', component: EditQuestionsComponent },
-{ path: 'delete/:id', component: DeleteQuestionsComponent },
-{ path: 'search', component: SearchQuestionsComponent }];
+{ path: 'delete', component: DeleteQuestionsComponent },
+{ path: 'search', component: SearchQuestionsComponent },
+{ path: 'userquestion', component: ViewQuestionComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

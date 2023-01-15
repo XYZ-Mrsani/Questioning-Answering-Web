@@ -30,3 +30,7 @@
     height: auto;
     width: 800px;
   }
+  .row{
+    margin: 10px;
+    background-color: white;
+  }

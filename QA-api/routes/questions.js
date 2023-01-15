@@ -27,7 +27,7 @@ router.get('/view', function (req, res, next) {
 
     
 
-    questionModel.find({"uid":req.query.uid}, function (err, questionResponse) {
+    questionModel.find({"username":req.query.username}, function (err, questionResponse) {
         if (err) {
             res.send({ status: 500, message: 'Unable to find Question' });
         } else {
@@ -39,14 +39,12 @@ router.get('/view', function (req, res, next) {
 /* Create new question. */
 router.post('/add', function (req, res, next) {
 
-    let uid = req.body.uid;
-    let name = req.body.name;
+    let username = req.query.username;
     let question = req.body.question;
 
 
     let questionObj = new questionModel({
-        uid: uid,
-        name: name,
+        username: username,
         question: question,
         date: pdate
     });
@@ -63,15 +61,15 @@ router.post('/add', function (req, res, next) {
 /* Update Question. */
 router.put('/update', function (req, res, next) {
 
-    const userId = req.body.userId;
-    let uid = req.body.uid;
-    let name = req.body.name;
+   // const userId = req.body.userId;
+    //let uid = req.body.uid;
+    let username = req.body.name;
     let question = req.body.question;
 
 
     let questionObj = {
-        uid: uid,
-        name: name,
+       // uid: uid,
+        username: username,
         question: question,
         date: pdate
     };

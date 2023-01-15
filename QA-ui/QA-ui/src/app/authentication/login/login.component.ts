@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       this.dataLog=data;
 
       if(this.dataLog.success){
+        localStorage.setItem('usertoken',username);
         localStorage.setItem('token', this.dataLog.token);
         this.router.navigate(['/profile']);
       }else{

@@ -166,7 +166,7 @@
         <a routerLinkActive="active" [routerLink]="'qa'" class="qlink">
         <div class="card wi">
             <div class="card-body">
-                <h6 class="card-title">{{question.name}} Asked: {{question.date}}</h6>
+                <h6 class="card-title">{{question.username}} Asked: {{question.date}}</h6>
                 {{question.question}}
             </div>
         </div>
@@ -181,19 +181,17 @@
           
         </div>
         <div class="btn-ask">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ask Questions</button>
+          <button class="btn btn-primary" onclick="toggle(this)" data-bs-toggle="modal" data-bs-target="#exampleModal">Ask Questions</button>
         </div>
+        <div class="row">
+            <div class="col">
+              <a href="/userquestion" class="qr1-a">Questions</a>
+            </div>
+            <div class="col">
+              <a href="#" class="qr2-a">Answers</a>
+            </div>
+          </div>
         </div>
-        <!--<div class="row">
-          <div class="col">
-            <div class="qr1-a">Questions</div>
-            <div class="qr1-a">10</div>
-          </div>
-          <div class="col">
-            <div class="qr2-a">Answers</div>
-            <div class="qr2-a">5</div>
-          </div>
-        </div>-->
       </div>
       </div>
     
@@ -205,15 +203,17 @@
                     <h5 class="modal-title" id="exampleModalLabel">Enter Your Question Here.</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="#" method="post">
+                <form #values="ngForm" (ngSubmit)="addQuestion(values)">
                     <div class="modal-body">
-                        <textarea style="border: none;outline: none; resize: none; height: 300px; width: 765px;" placeholder="Start Your Question with 'What', 'How', 'Why', etc."></textarea>
+                        <textarea style="border: none;outline: none; resize: none; height: 300px; width: 765px;" placeholder="Start Your Question with 'What', 'How', 'Why', etc." ngModel name="question"></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Post</button>
+                        <!--<a href="questions/add" class="btn btn-primary">Post</a>-->
+                        <button type="submit" class="btn btn-primary">Add</button>
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>
