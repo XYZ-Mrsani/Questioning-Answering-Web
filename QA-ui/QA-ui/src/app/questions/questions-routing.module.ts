@@ -8,12 +8,26 @@ import { QuestionsComponent } from './questions.component';
 import { SearchQuestionsComponent } from './search-questions/search-questions.component';
 import { ViewQuestionComponent } from './view-question/view-question.component';
 
-const routes: Routes = [{ path: '', component: ListQuestionsComponent },
+const routes: Routes = [
+/*{ path: '', component: ListQuestionsComponent },
 { path: 'add', component: AddQuestionsComponent },
-{ path: 'edit/:id', component: EditQuestionsComponent },
+{ path: 'edit', component: EditQuestionsComponent },
 { path: 'delete', component: DeleteQuestionsComponent },
 { path: 'search', component: SearchQuestionsComponent },
-{ path: 'userquestion', component: ViewQuestionComponent }];
+{ path: 'userquestion', component: ViewQuestionComponent }*/
+{
+  path:'',
+  children:[
+    {path:'',component:ListQuestionsComponent},
+    {path:'userquestion', component:ViewQuestionComponent},
+  ]
+},{
+  path:'userquestion',
+  children:[
+    {path:'edit/:id',component:EditQuestionsComponent}
+  ]
+}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

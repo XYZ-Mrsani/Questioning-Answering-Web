@@ -12,9 +12,9 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'signup',component:NewUserComponent},
   {path:'logout',component:LogoutComponent},
-  {path: 'userquestion', component: ViewQuestionComponent },
-  {path: 'userquestion/edit/:id', component: EditQuestionsComponent },
-  {path: 'userquestion/delete', component: DeleteQuestionsComponent },
+  //{path: 'userquestion', component: ViewQuestionComponent },
+  //{path: 'questions/userquestion/edit/:id', component: EditQuestionsComponent },
+  //{path: 'userquestion/delete', component: DeleteQuestionsComponent },
   {path:'',component:QAHomeComponent},
   
   { path: 'questions', loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule) },
