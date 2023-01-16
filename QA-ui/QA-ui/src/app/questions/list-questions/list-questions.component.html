@@ -163,7 +163,7 @@
 <div class="outer">
     <div class="fleft">
     <div class="middle" *ngFor="let question of questionList">
-        <a routerLinkActive="active" [routerLink]="'qa'" class="qlink">
+        <a routerLinkActive="active" [routerLink]="['qa',question.question]" class="qlink">
         <div class="card wi">
             <div class="card-body">
                 <h6 class="card-title">{{question.username}} Asked: {{question.date}}</h6>

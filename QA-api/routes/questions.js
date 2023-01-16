@@ -36,6 +36,18 @@ router.get('/view', function (req, res, next) {
     });
 });
 
+/* GET details of a specific Questions using Question. */
+router.get('/viewqa', function (req, res, next) {
+
+    questionModel.find({"question":req.query.question}, function (err, questionResponse) {
+        if (err) {
+            res.send({ status: 500, message: 'Unable to find Question' });
+        } else {
+            res.send({ status: 200, results: questionResponse });
+        }
+    });
+});
+
 router.get('/vq', function (req, res, next) {
 
     

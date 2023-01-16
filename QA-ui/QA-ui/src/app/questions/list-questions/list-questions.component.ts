@@ -45,6 +45,5 @@ export class ListQuestionsComponent implements OnInit{
     });
       console.log(data);
     });
-
   }
 }

@@ -33,3 +33,16 @@
     margin-left: 18px;
     font-size: 20px;
 }
+
+.questionTitle {
+    width: 100%;
+    max-width: 100%;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-weight: bold;
+    /* may be useful if you base style overrides the user agent */
+    /* box-sizing: border-box; */
+    /*display: block; */
+  }

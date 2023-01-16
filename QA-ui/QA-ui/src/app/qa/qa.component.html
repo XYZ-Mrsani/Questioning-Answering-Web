@@ -1,126 +1,18 @@
 <div class="info">
     <div class="card" style="border: none;">
         <div class="card-body">
-            <h6 class="card-title">Sandeepa Bro Asked: 15/12/2022</h6>
-            <p>How does programming work?</p>
-                <button  onclick="toggle(this)"  class="btn btn-primary" style="margin: 10px;" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Answer</button>
-            <div class="card QA">
-                <div class="card-body">
-                    <div class="cardQA">
-                        <p>Sani Malle 03/12/2021</p>
-                        <label>A programmer was asked an interview question - If you had to construct a
-                            swimming
-                            pool for Mark Zuckerberg and had no budget limit to your project, describe the
-                            pool you
-                            will make?
-
-                            Now this guy didn't have a clue about how swimming pools are made or what are
-                            the
-                            requirements for one. But his answer was what you can expect out of a
-                            programmer.
-
-                            His answer -
-                            Let's consider the components here - A pool, a fountain nearby, a changing room,
-                            a bar,
-                            a resting/sunbathing area, and some other stuff rich people have by their pools.
-                            Since
-                            here we are referring only the pool, I will only describe the pool. Also since
-                            Mark
-                            loves Star Wars, this would be a Star Wars themed pool.
-
-                            Let's consider the pool to be rectangular with a standard size of 16ft by 32ft.
-                            Now for lights, there will be one at every 4 ft along the perimeter. The colors
-                            of the
-                            lights will change if Mark decides to select Sith theme or a Jedi theme. On a
-                            closer
-                            look at the each of the light you will see a distinct star wars character on
-                            each of
-                            them, which will only be visible when you are close enough. The lights will also
-                            .....
-                            **gets interrupted by the interviewer**
-
-                            Interviewer - Let's move on to another question.
-
-                            Programmer - But I haven't finished my answer sir....... in fact, I had barely
-                            started.
-
-                            Interviewer(who was a wise man) - You don't need to, you're shortlisted for the
-                            next
-                            round.
-
-                            Programming is about taking a problem (making the pool) and defining a solution
-                            to
-                            it(size of pool, lights, right down to each light) where every small detail is
-                            elaborated cause you are trying to convey it to the dumbest thing on a planet(a
-                            computer)
-                        </label>
-                    </div>
-                </div>
+            <div *ngFor="let question of questionList">
+                <h6 class="card-title">{{question.username}} Asked: {{question.date}}</h6>
+                <p>{{question.question}}</p>
+                <button onclick="toggle(this)" class="btn btn-primary" style="margin: 10px;" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Answer</button>
             </div>
-
-            <div class="card QA">
+            <div class="card QA" *ngFor="let qa of qaList">
                 <div class="card-body">
                     <div class="cardQA">
-                        <p>Mr Unknown 11/11/2022</p>
-                        <label>A programmer was asked an interview question - If you had to construct a
-                            swimming
-                            pool for Mark Zuckerberg and had no budget limit to your project, describe the
-                            pool you
-                            will make?
-
-                            Now this guy didn't have a clue about how swimming pools are made or what are
-                            the
-                            requirements for one. But his answer was what you can expect out of a
-                            programmer.
-
-                            His answer -
-                            Let's consider the components here - A pool, a fountain nearby, a changing room,
-                            a bar,
-                            a resting/sunbathing area, and some other stuff rich people have by their pools.
-                            Since
-                            here we are referring only the pool, I will only describe the pool. Also since
-                            Mark
-                            loves Star Wars, this would be a Star Wars themed pool.
-
-                            Let's consider the pool to be rectangular with a standard size of 16ft by 32ft.
-                            Now for lights, there will be one at every 4 ft along the perimeter. The colors
-                            of the
-                            lights will change if Mark decides to select Sith theme or a Jedi theme. On a
-                            closer
-                            look at the each of the light you will see a distinct star wars character on
-                            each of
-                            them, which will only be visible when you are close enough. The lights will also
-                            .....
-                            **gets interrupted by the interviewer**
-
-                            Interviewer - Let's move on to another question.
-
-                            Programmer - But I haven't finished my answer sir....... in fact, I had barely
-                            started.
-
-                            Interviewer(who was a wise man) - You don't need to, you're shortlisted for the
-                            next
-                            round.
-
-                            Programming is about taking a problem (making the pool) and defining a solution
-                            to
-                            it(size of pool, lights, right down to each light) where every small detail is
-                            elaborated cause you are trying to convey it to the dumbest thing on a planet(a
-                            computer)
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card QA">
-                <div class="card-body">
-                    <div class="cardQA">
-                        <p>Mr Unknown 11/10/2022</p>
-                        <label>Almost all programming languages work the same way: You write code to tell it
-                            what to do: print("Hello, world"). The code is compiled, which turns it into
-                            machine code the computer can understand. The computer executes the code, and
-                            writes Hello, world back to us.
+                        <p>{{qa.username}} {{qa.date}}</p>
+                        <label>
+                            {{qa.answers}}
                         </label>
                     </div>
                 </div>
@@ -132,13 +24,15 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">How does programming work?</h5>
+                <form (submit)="addAnswer($event)">
+                <div class="modal-header" *ngFor="let question of questionList" >
+                    <!--<input type="text" name="questionTitle" id="questionTitle" class="questionTitle" value="{{question.question}}">-->
+                    <textarea type="text" class="modal-title questionTitle" id="exampleModalLabel" value="{{question.question}}" readonly></textarea>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form (submit)="addQuestion($event)">
+                
                     <div class="modal-body">
-                        <textarea style="border: none;outline: none; resize: none; height: 300px; width: 765px;"
+                        <textarea id="answer" class="answer" name="answer" style="font-size: 24px; border: none;outline: none; resize: none; height: 300px; width: 765px;"
                             placeholder="Write Your Answer"></textarea>
                     </div>
                     <div class="modal-footer">

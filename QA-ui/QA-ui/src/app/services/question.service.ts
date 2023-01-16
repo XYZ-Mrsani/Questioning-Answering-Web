@@ -39,6 +39,11 @@ export class QuestionService {
     return this.httpClient.delete(url);
   }
 
+  viewQa(question){
+    let url = environment.QUESTION_BASE_URL+environment.QUESTION.VQA+question;
+    return this.httpClient.get(url);
+  }
+
   searchQuestion(keyword){
 
   }
