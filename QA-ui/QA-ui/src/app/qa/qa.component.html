@@ -136,7 +136,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">How does programming work?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="Login&SignUp.html" method="post">
+                <form (submit)="addQuestion($event)">
                     <div class="modal-body">
                         <textarea style="border: none;outline: none; resize: none; height: 300px; width: 765px;"
                             placeholder="Write Your Answer"></textarea>

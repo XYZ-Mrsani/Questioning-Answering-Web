@@ -3,7 +3,6 @@ let toggle = button => {
         window.location.href = "http://localhost:4200/login";
     }
 }
-
     //let element1 = document.getElementById("etitle");
     //let element2 = document.getElementById("eabout");
     //let element3 = document.getElementById("eemail");
