@@ -25,11 +25,13 @@ router.post('/add', function (req, res, next) {
         postdate:postdate,
     });
 
-    answerObj.save(function (err, questionObj) {
+    answerObj.save(function (err, answerObj) {
         if (err) {
             res.send({ status: 500, message: 'Unable to add Question' });
         } else {
-            res.send({ status: 200, message: 'Question added successfully', questionDetails: questionObj });
+            res.send({ status: 200, message: 'Question added successfully', answerDetails: answerObj });
         }
     });
 });
+
+module.exports = router;
