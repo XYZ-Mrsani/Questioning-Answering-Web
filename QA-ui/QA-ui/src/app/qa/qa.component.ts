@@ -65,7 +65,7 @@ export class QaComponent implements OnInit {
         'Answer Added Successfully', '',
         'success'
     ).then(function(){
-      //window.location.href="http://localhost:4200/questions/";
+      window.location.href="http://localhost:4200/questions/";
     });
       console.log(data);
     });

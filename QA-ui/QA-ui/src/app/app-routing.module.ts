@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { LogoutComponent } from './authentication/logout/logout.component';
 import { NewUserComponent } from './authentication/new-user/new-user.component';
+import { ViewAnswerComponent } from './qa/view-answer/view-answer.component';
 import { QAHomeComponent } from './qahome/qahome.component';
 import { DeleteQuestionsComponent } from './questions/delete-questions/delete-questions.component';
 import { EditQuestionsComponent } from './questions/edit-questions/edit-questions.component';
@@ -14,7 +15,7 @@ const routes: Routes = [
   {path:'logout',component:LogoutComponent},
   //{path: 'userquestion', component: ViewQuestionComponent },
   //{path: 'questions/userquestion/edit/:id', component: EditQuestionsComponent },
-  //{path: 'userquestion/delete', component: DeleteQuestionsComponent },
+  {path: 'questions/useranswer', component: ViewAnswerComponent },
   {path:'',component:QAHomeComponent},
   
   { path: 'questions', loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule) },

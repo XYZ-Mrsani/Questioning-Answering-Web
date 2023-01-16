@@ -22,6 +22,7 @@ export const environment = {
     NEWANSWER_BASE_URL: 'http://localhost:3000/answers/',
     ANSWER: {
         VIEW_QA:'view?question=',
-        ADD_ANSWER:'add'
+        ADD_ANSWER:'add',
+        VA:'vq?username='
     }
 };

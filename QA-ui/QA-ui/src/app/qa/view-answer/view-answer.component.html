@@ -1,0 +1,10 @@
+<div class="card mx-auto" *ngFor="let answer of answerList">
+    <div class="card-body">
+        <h6 class="card-title">{{answer.username}} Asked: {{answer.date}}</h6>
+        {{answer.pquestion}}
+    </div>
+    <div>
+        <button class="btn btn-primary btnud">Update</button>
+        <a class="btn btn-danger btnud">Delete</a>
+    </div>
+</div>

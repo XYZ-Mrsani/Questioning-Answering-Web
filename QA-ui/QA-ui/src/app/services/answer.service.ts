@@ -19,4 +19,9 @@ export class AnswerService {
     let url = environment.NEWANSWER_BASE_URL+environment.ANSWER.VIEW_QA+question;
     return this.httpClient.get(url);
   }
+
+  viewAnswers(username){
+    let url = environment.NEWANSWER_BASE_URL+environment.ANSWER.VA+username;
+    return this.httpClient.get(url);
+  }
 }

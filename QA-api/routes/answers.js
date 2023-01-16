@@ -37,6 +37,18 @@ router.post('/add', function (req, res, next) {
     });
 });
 
+router.get('/vq', function (req, res, next) {
+
+
+    answerModel.find({"username":req.query.username}, function (err, questionResponse) {
+        if (err) {
+            res.send({ status: 500, message: 'Unable to find Answer' });
+        } else {
+            res.send({ status: 200, results: questionResponse });
+        }
+    });
+});
+
 
 router.get('/view', function (req, res, next) {
 
