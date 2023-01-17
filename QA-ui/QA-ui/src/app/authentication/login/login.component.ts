@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
       if(this.dataLog.success){
         localStorage.setItem('usertoken',username);
         localStorage.setItem('token', this.dataLog.token);
-        this.router.navigate(['/profile']);
+        //this.router.navigate(['/profile']);
+        window.location.href='http://localhost:4200/questions';
       }else{
         Swal.fire(
           this.dataLog.message, '',

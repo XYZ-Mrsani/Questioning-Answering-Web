@@ -15,7 +15,12 @@ export class ViewAnswerComponent implements OnInit{
   constructor(private answerService: AnswerService){}
 
   ngOnInit(): void {
-    this.getAnswers();
+    var logingStatus = localStorage.getItem('token')
+    if (logingStatus) {
+      this.getAnswers();
+    } else {
+      window.location.href = "http://localhost:4200/login";
+    }
   }
 
   getAnswers(){

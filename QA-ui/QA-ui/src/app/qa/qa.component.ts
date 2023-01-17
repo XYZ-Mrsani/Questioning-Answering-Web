@@ -19,13 +19,13 @@ export class QaComponent implements OnInit {
   constructor(private answerService:AnswerService, private questionService:QuestionService){}
 
   ngOnInit(): void {
-    var logingStatus = localStorage.getItem('token')
-    if (logingStatus) {
+    //var logingStatus = localStorage.getItem('token')
+    //if (logingStatus) {
       this.viewQA();
       this.viewQuestion();
-    } else {
-      window.location.href = "http://localhost:4200/login";
-    }
+    //} else {
+      //window.location.href = "http://localhost:4200/login";
+    //}
   }
 
   viewQA(){
