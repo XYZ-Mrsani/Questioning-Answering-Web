@@ -49,6 +49,18 @@ router.get('/vq', function (req, res, next) {
     });
 });
 
+router.get('/viewqa', function (req, res, next) {
+
+
+    answerModel.findById(req.query.id, function (err, questionResponse) {
+        if (err) {
+            res.send({ status: 500, message: 'Unable to find Answer' });
+        } else {
+            res.send({ status: 200, results: questionResponse });
+        }
+    });
+});
+
 
 router.get('/view', function (req, res, next) {
 
@@ -58,6 +70,39 @@ router.get('/view', function (req, res, next) {
             res.send({ status: 500, message: 'Unable to find Question' });
         } else {
             res.send({ status: 200, results: questionResponse });
+        }
+    });
+});
+
+/* Update Answer. */
+router.put('/update', function (req, res, next) {
+
+     let answer = req.body.answer;
+     let id = req.body.id;
+ 
+ 
+     let answerObj = {
+         answers: answer,
+         date: postdate
+     };
+ 
+     answerModel.findByIdAndUpdate(id, answerObj, function (err, answerResponse) {
+         if (err) {
+             res.send({ status: 500, message: 'Unable to update the answer' });
+         } else {
+             res.send({ status: 200, message:'Answer Updated Successfully', results: answerObj });
+         }
+     });
+ });
+
+ /* delete answer. */
+router.delete('/delete', function (req, res, next) {
+
+    answerModel.findByIdAndDelete(req.query.id, function (err, answerResponse) {
+        if (err) {
+            res.send({ status: 500, message: 'Unable to delete the answer' });
+        } else {
+            res.send({ status: 200, message:'Answer deleted successfully', results: answerResponse });
         }
     });
 });

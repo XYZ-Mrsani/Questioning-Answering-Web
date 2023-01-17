@@ -4,7 +4,7 @@
         {{answer.pquestion}}
     </div>
     <div>
-        <button class="btn btn-primary btnud">Update</button>
-        <a class="btn btn-danger btnud">Delete</a>
+        <button class="btn btn-primary btnud" [routerLink]="['edit',answer._id]">Update</button>
+        <a class="btn btn-danger btnud" [routerLink]="['delete',answer._id]">Delete</a>
     </div>
 </div>

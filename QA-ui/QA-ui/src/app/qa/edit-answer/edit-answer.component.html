@@ -1,1 +1,15 @@
-<p>edit-answer works!</p>
+<div class="card mx-auto" *ngFor="let answer of answerList">
+    <div class="card-body">
+      <h5 class="card-title">Update Your Answer</h5><br>
+      <h5 class="card-title">Question - {{answer.pquestion}}</h5>
+      <div class="form-outline" style="margin: 20px;">
+        <label style="font-size: 24px;" class="form-control" id="textAreaExample2" rows="2" readonly>{{answer.answers}}</label>
+      </div>
+      <form (submit)="updateAnswer($event)">
+      <div class="form-outline" style="margin: 20px;">
+        <textarea style="font-size: 24px;" name="answer" id="answer" class="form-control answer" id="textAreaExample2" rows="4" placeholder="Enter your Answer to update"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+  </div>

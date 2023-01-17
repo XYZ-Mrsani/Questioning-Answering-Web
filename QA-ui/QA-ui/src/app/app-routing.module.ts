@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { LogoutComponent } from './authentication/logout/logout.component';
 import { NewUserComponent } from './authentication/new-user/new-user.component';
+import { DeleteAnswerComponent } from './qa/delete-answer/delete-answer.component';
+import { EditAnswerComponent } from './qa/edit-answer/edit-answer.component';
 import { ViewAnswerComponent } from './qa/view-answer/view-answer.component';
 import { QAHomeComponent } from './qahome/qahome.component';
 import { DeleteQuestionsComponent } from './questions/delete-questions/delete-questions.component';
@@ -15,8 +17,10 @@ const routes: Routes = [
   {path:'logout',component:LogoutComponent},
   //{path: 'userquestion', component: ViewQuestionComponent },
   //{path: 'questions/userquestion/edit/:id', component: EditQuestionsComponent },
-  {path: 'questions/useranswer', component: ViewAnswerComponent },
   {path:'',component:QAHomeComponent},
+  {path: 'questions/useranswer', component: ViewAnswerComponent },
+  {path: 'questions/useranswer/edit/:id', component: EditAnswerComponent },
+  {path: 'questions/useranswer/delete/:id', component: DeleteAnswerComponent },
   
   { path: 'questions', loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule) },
   { path: 'questions/qa/:id', loadChildren: () => import('./qa/qa.module').then(m => m.QaModule) },

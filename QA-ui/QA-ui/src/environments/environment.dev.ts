@@ -23,6 +23,9 @@ export const environment = {
     ANSWER: {
         VIEW_QA:'view?question=',
         ADD_ANSWER:'add',
-        VA:'vq?username='
+        VA:'vq?username=',
+        UPDATE:'update',
+        VQA:'viewqa?id=',
+        DELETE: 'delete?id='
     }
 };
