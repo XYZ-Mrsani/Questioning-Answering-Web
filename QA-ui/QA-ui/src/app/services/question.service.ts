@@ -44,8 +44,9 @@ export class QuestionService {
     return this.httpClient.get(url);
   }
 
-  searchQuestion(keyword){
-
+  searchQuestion(question){
+    let url = environment.QUESTION_BASE_URL+environment.QUESTION.SEARCH_QUESTION+question;
+    return this.httpClient.get(url);
   }
 
 }

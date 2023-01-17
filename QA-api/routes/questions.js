@@ -122,7 +122,14 @@ router.delete('/delete', function (req, res, next) {
 
 /* search question. */
 router.get('/search', function (req, res, next) {
-    res.send('respond with a resource');
+    
+    questionModel.find({"question":{$regex: req.query.question,$options:'i'}}, function (err, questionResponse) {
+        if (err) {
+            res.send({ status: 500, message: 'Unable to find Question' });
+        } else {
+            res.send({ status: 200, results: questionResponse });
+        }
+    });
 });
 
 module.exports = router;

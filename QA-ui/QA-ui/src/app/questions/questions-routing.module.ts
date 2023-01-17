@@ -20,6 +20,7 @@ const routes: Routes = [
   children:[
     {path:'',component:ListQuestionsComponent},
     {path:'userquestion', component:ViewQuestionComponent},
+    {path:'search',component:SearchQuestionsComponent}
   ]
 },{
   path:'userquestion',

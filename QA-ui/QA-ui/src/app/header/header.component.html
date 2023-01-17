@@ -18,8 +18,8 @@
             <a class="nav-link text-white" routerLinkActive="active" [routerLink]="'questions'">Questions</a>
           </li>
         </ul>
-        <form action="#" class="d-flex sbox" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+        <form (submit)="searchQuestion($event)" class="d-flex" role="search">
+          <input class="form-control me-2 search-box" type="text" placeholder="Search..." aria-label="Search">
           <button class="btn btn-primary" type="submit"><i class="fa fa-search fa-fw"></i></button>
         </form>
       </div>
@@ -55,3 +55,7 @@
       </div>
     </div>
   </nav>
+
+  <section class="search-result">
+    
+  </section>

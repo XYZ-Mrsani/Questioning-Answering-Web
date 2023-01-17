@@ -24,6 +24,7 @@ const routes: Routes = [
   
   { path: 'questions', loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule) },
   { path: 'questions/qa/:id', loadChildren: () => import('./qa/qa.module').then(m => m.QaModule) },
+  { path: 'questions/search/qa/:id', loadChildren: () => import('./qa/qa.module').then(m => m.QaModule) },
   { path: 'QAHome', loadChildren: () => import('./qahome/qahome.module').then(m => m.QAHomeModule) },
   { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
   { path: 'qa', loadChildren: () => import('./qa/qa.module').then(m => m.QaModule) },

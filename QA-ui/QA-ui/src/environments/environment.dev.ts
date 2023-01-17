@@ -9,7 +9,8 @@ export const environment = {
         VQ:'vq?id=',
         UPDATE:'update?id=',
         DELETE:'delete?id=',
-        VQA:'viewqa?question='
+        VQA:'viewqa?question=',
+        SEARCH_QUESTION:'search?question='
     },
     NEWUSER_BASE_URL: 'http://localhost:3000/users/',
     USER: {
