@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
 var mongoose = require('mongoose');
 var datetime = require('node-datetime');
 
@@ -8,7 +7,24 @@ const questionModel = require('../models/questions.model')
 
 var date = new Date();
 let pdate = date.toISOString().slice(0, 10);
+/*--Socket Part--*
 
+var express = require('express'),
+http = require('http');
+var app = express();
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+
+const port = 4000;
+const server = app.listen(port, () => {
+    console.log(`Server connection on  http://localhost:${port}`);  // Server Connnected
+  });
+  const socket = require('socket.io')(server);
+  socket.on('connection', socket => {
+    console.log('Socket: client connected');
+});
+
+/*-------------------------------------------------------*/
 
 /* GET all Questions. */
 router.get('/list', function (req, res, next) {
@@ -19,6 +35,8 @@ router.get('/list', function (req, res, next) {
             const recordCount = questionListResponse.length;
             res.send({ status: 200, recordCount: recordCount, results: questionListResponse });
         }
+        //socket.emit('questionList', questionListResponse);
+        //res.send(questionListResponse);
     });
 });
 
