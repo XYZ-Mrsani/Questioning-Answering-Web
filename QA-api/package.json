@@ -2,8 +2,11 @@
   "name": "qa-api",
   "version": "0.0.0",
   "private": true,
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start":"node ./bin/www",
+    "start-dev": "cross-env NODE_ENV=development nodemon app.js",
+    "test": "cross-env NODE_ENV=test mocha --recursive --exit"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -22,5 +25,12 @@
     "node-datetime": "^2.1.2",
     "socket.io-client": "^4.5.4",
     "socketio": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.3",
+    "chai-http": "^4.3.0",
+    "cross-env": "^7.0.3",
+    "mocha": "^8.3.1",
+    "nodemon": "^2.0.7"
   }
 }
