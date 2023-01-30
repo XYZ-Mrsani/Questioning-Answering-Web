@@ -176,7 +176,7 @@ describe("Update Answer", () => {
 
 /*----------------------------------------------------Test-User------------------------------------------------------------------------*/
 
-describe("POST User", () => {
+/*describe("POST User", () => {
     // After Testing Add User Please Comment this Test
     it('Test Add User', (done) => {
 
@@ -190,7 +190,20 @@ describe("POST User", () => {
             done();
         });
     });
-});
+});*/
 
+describe("Login User", () => {
+
+    it('Test Login User', (done) => {
+        let user = {
+            username:"saniya",
+            password:"saniya",
+        }
+        chai.request(server).post("/users/login").send(user).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
 
 
