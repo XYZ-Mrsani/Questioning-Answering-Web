@@ -1,11 +1,14 @@
+
 language: node_js
 node_js:
-- "16.13.2"
-install:
-- npm install -g mocha
-- npm install chai
-- npm install chai-http
-- npm install express
-
+  - "16.13.2"
+dist: trusty
+sudo: required
+branches:
+  only:
+  - master
+before_script:
+  - npm install -g @angular/cli
 script:
-  - npm test
+- ng lint
+- ng build --prod --base-href https://github.com/XYZ-Mrsani/Questioning-Answering-Web.git
