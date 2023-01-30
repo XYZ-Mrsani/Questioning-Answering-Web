@@ -24,16 +24,14 @@ after((done) => {
     done();
 });
 
-describe("GET Q List", function()  {
-
-    this.timeout(5000);
-    it('Test Question List, are there any Questions', (done) => {
+describe("GET Q List", () => {
+    
+    it('Test Question List, are there any Questions', () => {
         chai.request(server).get("/questions/list").end((err, res) => {
             res.should.have.status(200);
 
             expect(res.body.recordCount).to.be.above(0);
             res.body.results.length.should.be.eql(res.body.recordCount);
-            done();
         });
     });
 });
