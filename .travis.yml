@@ -1,11 +1,5 @@
 language: node_js
 node_js:
-- 17
+- "stable"
 install:
-- npm install -g mocha
-- npm install chai
-- npm install chai-http
-- npm install express
-
-script:
-  - npm test
+- npm install
