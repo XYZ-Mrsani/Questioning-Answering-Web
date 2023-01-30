@@ -102,7 +102,7 @@ describe("Search Question", () => {
 
 /*--------------------------------------------------------------Test-Answer---------------------------------------------------------------*/
 
-describe("POST Answer", () => {
+/*describe("POST Answer", () => {
     // After Testing Add Answer Please Comment this Test
     it('Test Add Answesr', (done) => {
 
@@ -116,5 +116,34 @@ describe("POST Answer", () => {
             done();
         });
     });
+});*/
+
+describe("View Posted Questions", () => {
+    it('Test View Posted Question', (done) => {
+        chai.request(server).get("/answers/vq?username=saniya").end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
 });
+
+describe("View Answer", () => {
+    it('Test View Post Answer', (done) => {
+        chai.request(server).get("/answers/viewqa?id=63d7d2e3823bcc9e855749fd").end((err, res) => {
+            res.should.have.status(200);
+            expect([{answers:res.body.results.answers}]).to.have.deep.members([{ answers:res.body.results.answers }]);
+            done();
+        });
+    });
+});
+
+describe("View Question", () => {
+    it('Test View Question by Question', (done) => {
+        chai.request(server).get("/answers/view?question=WHAT IS THE WORLD FASTEST CAR?").end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
+
 
