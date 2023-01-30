@@ -6,6 +6,7 @@ install:
 - npm install chai
 - npm install chai-http
 - npm install express
+- npm install --save-dev cross-env
 
 script:
   - cross-env NODE_ENV=test mocha --recursive --exit
