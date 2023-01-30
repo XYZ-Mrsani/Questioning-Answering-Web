@@ -160,7 +160,7 @@ describe("Update Answer", () => {
     });
 });
 
-describe("Delete Answer", () => {
+/*describe("Delete Answer", () => {
     //After Test Delete Answer it will delete the Answer from DB, to add again uncomment 'Test Add Answer' and Comment This test
     it('Test Delete Question', (done) => {
 
@@ -172,6 +172,25 @@ describe("Delete Answer", () => {
             done();
         });
     });
+});*/
+
+/*----------------------------------------------------Test-User------------------------------------------------------------------------*/
+
+describe("POST User", () => {
+    // After Testing Add User Please Comment this Test
+    it('Test Add User', (done) => {
+
+        let user = {
+            email: "saniyayt2021@gmail.com",
+            username:"saniya",
+            password:"saniya",
+        }
+        chai.request(server).post("/users/add").send(user).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
 });
+
 
 
