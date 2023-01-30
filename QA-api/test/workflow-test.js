@@ -37,7 +37,7 @@ describe("GET Q List", () => {
     });
 });
 
-describe("Post Question", () => {
+/*describe("Post Question", () => {
 
     // After Testing Add Question Please Comment this Test
     it('Test Add Question', (done) => {
@@ -51,5 +51,20 @@ describe("Post Question", () => {
             done();
         });
     });
-});
+});*/
 
+describe("Update Question", () => {
+
+    it('Test Update Question', (done) => {
+
+        let question = {
+            id: "63d789ccf08c1db0b5467838",
+            question: "WHAT IS THE WORLD FASTEST CAR?"
+        }
+
+        chai.request(server).put("/questions/update?id=" + question.id).send(question).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
