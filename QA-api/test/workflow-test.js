@@ -221,3 +221,18 @@ describe("Update User", () => {
         });
     });
 });
+
+describe("Delete User", () => {
+
+    //After Test Delete Profile it will delete the Profile from DB, to add again uncomment 'Test Add User' and Comment This test
+    it('Test Delete Question', (done) => {
+
+        let answer = {
+            id: "saniya"
+        }
+        chai.request(server).delete("/users/delete?username="+answer.id).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
