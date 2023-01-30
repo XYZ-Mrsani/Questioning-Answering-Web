@@ -28,6 +28,5 @@ jobs:
         cache: 'npm'
         working-directory: ./QA-api
         cache-dependency-path: "./QA-api/package-lock.json"
-    - run: npm ci
     - run: npm run build
     - run: npm test
