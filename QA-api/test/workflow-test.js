@@ -146,4 +146,18 @@ describe("View Question", () => {
     });
 });
 
+describe("Update Answer", () => {
+    it('Test Update Answer', (done) => {
+
+        let answer = {
+            answer:"Koenigsegg",
+            id: "63d7d2e3823bcc9e855749fd"
+        }
+        chai.request(server).put("/answers/update").send(answer).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
+
 
