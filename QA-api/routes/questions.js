@@ -30,7 +30,7 @@ const server = app.listen(port, () => {
 router.get('/list', function (req, res, next) {
     questionModel.find(function (err, questionListResponse) {
         if (err) {
-            res.send({ status: 500, message: 'Unable to list Questions' });
+            res.status(400).send({status: 400, message: 'Unable to List Question'});
         } else {
             const recordCount = questionListResponse.length;
             res.send({ status: 200, recordCount: recordCount, results: questionListResponse });
@@ -47,7 +47,7 @@ router.get('/view', function (req, res, next) {
 
     questionModel.find({"username":req.query.username}, function (err, questionResponse) {
         if (err) {
-            res.send({ status: 500, message: 'Unable to find Question' });
+            res.status(400).send({status: 400, message: 'Unable to find Question'});
         } else {
             res.send({ status: 200, results: questionResponse });
         }
@@ -59,7 +59,7 @@ router.get('/viewqa', function (req, res, next) {
 
     questionModel.find({"question":req.query.question}, function (err, questionResponse) {
         if (err) {
-            res.send({ status: 500, message: 'Unable to find Question' });
+            res.status(400).send({status: 400, message: 'Unable to find Question'});
         } else {
             res.send({ status: 200, results: questionResponse });
         }
@@ -72,7 +72,7 @@ router.get('/vq', function (req, res, next) {
 
     questionModel.findById(req.query.id, function (err, questionResponse) {
         if (err) {
-            res.send({ status: 500, message: 'Unable to find Question' });
+            res.status(400).send({status: 400, message: 'Unable to find Question'});
         } else {
             res.send({ status: 200, results: questionResponse });
         }
@@ -94,7 +94,7 @@ router.post('/add', function (req, res, next) {
 
     questionObj.save(function (err, questionObj) {
         if (err) {
-            res.send({ status: 500, message: 'Unable to add Question' });
+            res.status(400).send({status: 400, message: 'Unable to Add Question'});
         } else {
             res.send({ status: 200, message: 'Question added successfully', questionDetails: questionObj });
         }
@@ -119,7 +119,7 @@ router.put('/update', function (req, res, next) {
 
     questionModel.findByIdAndUpdate(req.query.id, questionObj, function (err, questionResponse) {
         if (err) {
-            res.send({ status: 500, message: 'Unable to update the Question' });
+            res.status(400).send({status: 400, message: 'Unable to Update Question'});
         } else {
             res.send({ status: 200, message:'Question Updated Successfully', results: questionObj });
         }
@@ -131,7 +131,7 @@ router.delete('/delete', function (req, res, next) {
 
     questionModel.findByIdAndDelete(req.query.id, function (err, questionResponse) {
         if (err) {
-            res.send({ status: 500, message: 'Unable to delete the Question' });
+            res.status(400).send({status: 400, message: 'Unable to Delete Question'});
         } else {
             res.send({ status: 200, message:'Question deleted successfully', results: questionResponse });
         }
