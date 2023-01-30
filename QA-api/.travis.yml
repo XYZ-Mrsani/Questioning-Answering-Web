@@ -3,3 +3,12 @@ language: node_js
 node_js:
 - "16.13.2"
 
+install:
+- npm install -g mocha
+- npm install chai
+- npm install chai-http
+- npm install express
+
+
+script:
+  - npm test
