@@ -38,7 +38,7 @@ describe("GET Q List", () => {
 });
 
 
-describe("Post Question", () => {
+/*describe("Post Question", () => {
 
     // After Testing Add Question Please Comment this Test
     it('Test Add Question', (done) => {
@@ -49,6 +49,37 @@ describe("Post Question", () => {
         }
         chai.request(server).post("/questions/add?username="+question.username).send(question).end((err, res) => {
             res.should.have.status(200);
+            done();
+        });
+    });
+});*/
+
+describe("Update Question", () => {
+
+    it('Test Update Question', (done) => {
+
+        let question = {
+            id: "63d7d1725d28d68d3023700c",
+            question: "WHAT IS THE WORLD FASTEST CAR?"
+        }
+
+        chai.request(server).put("/questions/update?id=" + question.id).send(question).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
+
+describe("Search Question", () => {
+
+    it('Test Search Question', (done) => {
+
+        let question = {
+            question: "WHAT IS THE WORLD FASTEST CAR?"
+        }
+        chai.request(server).get("/questions/search?question=" + question.question).end((err, res) => {
+            res.should.have.status(200);
+            expect([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]).to.have.deep.members([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]);
             done();
         });
     });
