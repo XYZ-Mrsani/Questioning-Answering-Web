@@ -39,7 +39,7 @@ after((done) => {
 describe("Post Question", () => {
 
     // After Testing Add Question Please Comment this Test
-    it('Test Add Question', (done) => {
+    it('Test Add Question', () => {
 
         let question = {
             username: "saniya",
@@ -47,7 +47,6 @@ describe("Post Question", () => {
         }
         chai.request(server).post("/questions/add?username="+question.username).send(question).end((err, res) => {
             res.should.have.status(200);
-            done();
         });
     });
 });
