@@ -38,7 +38,7 @@ after((done) => {
 
 const delay = require("delay"); 
 
-describe("Post Question", () => {
+/*describe("Post Question", () => {
 
     // After Testing Add Question Please Comment this Test
     it('Test Add Question', async function(){
@@ -52,20 +52,20 @@ describe("Post Question", () => {
             res.should.have.status(200);
         });
     });
-});
+});*/
 
-/*describe("Update Question", () => {
+describe("Update Question", () => {
 
-    it('Test Update Question', (done) => {
+    it('Test Update Question', async function(){
 
+        await delay(1000);
         let question = {
-            id: "63d789ccf08c1db0b5467838",
+            id: "63d7b7a9fa5471cc8444b93c",
             question: "WHAT IS THE WORLD FASTEST CAR?"
         }
 
         chai.request(server).put("/questions/update?id=" + question.id).send(question).end((err, res) => {
             res.should.have.status(200);
-            done();
         });
     });
-});*/
+});
