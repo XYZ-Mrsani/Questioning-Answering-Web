@@ -84,3 +84,18 @@ describe("Search Question", () => {
         });
     });
 });
+
+describe("Delete Question", () => {
+
+    //After Test Delete Question it will delete the Question from DB, to add again uncomment 'Test Add Question' and Comment This test
+    it('Test Delete Question', (done) => {
+
+        let question = {
+            id: "63d7d1725d28d68d3023700c"
+        }
+        chai.request(server).delete("/questions/delete?id="+question.id).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
