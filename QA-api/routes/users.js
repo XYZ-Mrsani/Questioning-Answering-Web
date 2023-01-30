@@ -32,7 +32,7 @@ router.post('/add', function (req, res, next) {
 
             newuserObj.save(function (err, newuserObj) {
                 if (err) {
-                    res.send({ status: 500, message: 'Unable to add newuser' });
+                    res.status(500).send({status: 500, message: 'Unable to Add New User'});
                 } else {
                     res.send({ status: 200, message: 'newuser added successfully', newuserDetails: newuserObj });
 
@@ -105,7 +105,7 @@ router.put('/update',function (req, res, next) {
             res.json(profileResponse); 
         }
     });
-   console.log(username);
+   //console.log(username);
 });
 
 
