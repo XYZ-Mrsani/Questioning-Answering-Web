@@ -69,3 +69,18 @@ describe("Update Question", () => {
         });
     });
 });
+
+describe("Search Question", () => {
+
+    it('Test Search Question', async function() {
+        await delay(1000);
+        let question = {
+            question: "WHAT IS THE WORLD FASTEST CAR?"
+        }
+        chai.request(server).get("/questions/search?question=" + question.question).end((err, res) => {
+            res.should.have.status(200);
+            expect([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]).to.have.deep.members([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]);
+        });
+    });
+});
+
