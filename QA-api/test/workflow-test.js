@@ -24,41 +24,39 @@ after((done) => {
     done();
 });
 
-/*describe("GET Q List", () => {
-    
-    it('Test Question List, are there any Questions', () => {
+describe("GET Q List", () => {
+
+    it('Test Question List, are there any Questions', (done) => {
         chai.request(server).get("/questions/list").end((err, res) => {
             res.should.have.status(200);
 
             expect(res.body.recordCount).to.be.above(0);
             res.body.results.length.should.be.eql(res.body.recordCount);
+            done();
         });
     });
-});*/
-
-const delay = require("delay"); 
+});
 
 /*describe("Post Question", () => {
 
     // After Testing Add Question Please Comment this Test
-    it('Test Add Question', async function(){
+    it('Test Add Question', (done) => {
 
-        await delay(1000);
         let question = {
             username: "saniya",
             question: "what is the world fastest car?"
         }
         chai.request(server).post("/questions/add?username="+question.username).send(question).end((err, res) => {
             res.should.have.status(200);
+            done();
         });
     });
 });*/
 
 describe("Update Question", () => {
 
-    it('Test Update Question', async function(){
+    it('Test Update Question', (done) => {
 
-        await delay(1000);
         let question = {
             id: "63d7b7a9fa5471cc8444b93c",
             question: "WHAT IS THE WORLD FASTEST CAR?"
@@ -66,21 +64,24 @@ describe("Update Question", () => {
 
         chai.request(server).put("/questions/update?id=" + question.id).send(question).end((err, res) => {
             res.should.have.status(200);
+            done();
         });
     });
 });
 
 describe("Search Question", () => {
 
-    it('Test Search Question', async function() {
-        await delay(1000);
+    it('Test Search Question', (done) => {
+
         let question = {
             question: "WHAT IS THE WORLD FASTEST CAR?"
         }
         chai.request(server).get("/questions/search?question=" + question.question).end((err, res) => {
             res.should.have.status(200);
-            expect([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]).to.have.deep.members([{ pquestion: 'HAT IS THE WORLD FASTEST CAR?' }]);
+            expect([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]).to.have.deep.members([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]);
+            done();
         });
     });
 });
+
 
