@@ -206,4 +206,18 @@ describe("Login User", () => {
     });
 });
 
+describe("Update User", () => {
 
+    it('Test Update User Profile', (done) => {
+        let user = {
+            username:"saniya",
+            email:"sani@gmail.com",
+            title:"Full Stack Developer",
+            aboutme:"Hello World!"
+        }
+        chai.request(server).put("/users/update?username="+user.username).send(user).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
