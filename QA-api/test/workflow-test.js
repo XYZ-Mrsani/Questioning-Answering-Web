@@ -160,4 +160,18 @@ describe("Update Answer", () => {
     });
 });
 
+describe("Delete Answer", () => {
+    //After Test Delete Answer it will delete the Answer from DB, to add again uncomment 'Test Add Answer' and Comment This test
+    it('Test Delete Question', (done) => {
+
+        let answer = {
+            id: "63d7d2e3823bcc9e855749fd"
+        }
+        chai.request(server).delete("/answers/delete?id="+answer.id).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
+
 
