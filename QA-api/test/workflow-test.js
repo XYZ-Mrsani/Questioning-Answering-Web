@@ -222,7 +222,7 @@ describe("Update User", () => {
     });
 });
 
-describe("Delete User", () => {
+/*describe("Delete User", () => {
 
     //After Test Delete Profile it will delete the Profile from DB, to add again uncomment 'Test Add User' and Comment This test
     it('Test Delete Question', (done) => {
@@ -235,4 +235,4 @@ describe("Delete User", () => {
             done();
         });
     });
-});
+});*/
