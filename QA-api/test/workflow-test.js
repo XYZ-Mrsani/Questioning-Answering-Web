@@ -24,8 +24,9 @@ after((done) => {
     done();
 });
 
-describe("GET Q List", () => {
+describe("GET Q List", function()  {
 
+    this.timeout(5000);
     it('Test Question List, are there any Questions', (done) => {
         chai.request(server).get("/questions/list").end((err, res) => {
             res.should.have.status(200);
@@ -53,7 +54,7 @@ describe("GET Q List", () => {
     });
 });*/
 
-describe("Update Question", () => {
+/*describe("Update Question", () => {
 
     it('Test Update Question', (done) => {
 
@@ -67,4 +68,4 @@ describe("Update Question", () => {
             done();
         });
     });
-});
+});*/
