@@ -79,7 +79,7 @@ describe("Search Question", () => {
         }
         chai.request(server).get("/questions/search?question=" + question.question).end((err, res) => {
             res.should.have.status(200);
-            expect([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]).to.have.deep.members([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]);
+            expect([{ pquestion: 'WHAT IS THE WORLD FASTEST CAR?' }]).to.have.deep.members([{ pquestion: 'HAT IS THE WORLD FASTEST CAR?' }]);
         });
     });
 });
