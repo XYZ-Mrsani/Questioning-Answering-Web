@@ -13,6 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./QA-api"
 
     strategy:
       matrix:
@@ -26,7 +29,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        working-directory: ./QA-api
         cache-dependency-path: "./QA-api/package-lock.json"
     - run: npm run build
     - run: npm test
