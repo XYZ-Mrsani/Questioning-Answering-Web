@@ -8,7 +8,9 @@ var cors = require("cors");
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/QADB');
+//mongoose.connect('mongodb://localhost/QADB');
+// change to original database when you deploy the application
+mongoose.connect('mongodb://localhost/QADBTest');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
