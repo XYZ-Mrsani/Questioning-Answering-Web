@@ -36,3 +36,20 @@ describe("GET Q List", () => {
         });
     });
 });
+
+
+describe("Post Question", () => {
+
+    // After Testing Add Question Please Comment this Test
+    it('Test Add Question', (done) => {
+
+        let question = {
+            username: "saniya",
+            question: "what is the world fastest car?"
+        }
+        chai.request(server).post("/questions/add?username="+question.username).send(question).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
+});
