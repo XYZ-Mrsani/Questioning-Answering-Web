@@ -11,8 +11,6 @@ on:
 
 jobs:
   build:
-  run:
-    working-directory: ./QA-api/
     runs-on: ubuntu-latest
 
     strategy:
