@@ -85,7 +85,7 @@ describe("Search Question", () => {
     });
 });
 
-describe("Delete Question", () => {
+/*describe("Delete Question", () => {
 
     //After Test Delete Question it will delete the Question from DB, to add again uncomment 'Test Add Question' and Comment This test
     it('Test Delete Question', (done) => {
@@ -98,4 +98,23 @@ describe("Delete Question", () => {
             done();
         });
     });
+});*/
+
+/*--------------------------------------------------------------Test-Answer---------------------------------------------------------------*/
+
+describe("POST Answer", () => {
+    // After Testing Add Answer Please Comment this Test
+    it('Test Add Answesr', (done) => {
+
+        let answers = {
+            username: "saniya",
+            answer:"Buggati",
+            question:"WHAT IS THE WORLD FASTEST CAR?",
+        }
+        chai.request(server).post("/answers/add").send(answers).end((err, res) => {
+            res.should.have.status(200);
+            done();
+        });
+    });
 });
+
