@@ -30,7 +30,7 @@ router.post('/add', function (req, res, next) {
 
     answerObj.save(function (err, answerObj) {
         if (err) {
-            res.send({ status: 500, message: 'Unable to add answers' });
+            res.status(400).send({status: 400, message: 'Unable to add answers'});
         } else {
             res.send({ status: 200, message: 'Answers added successfully', answerDetails: answerObj });
         }
@@ -100,7 +100,7 @@ router.delete('/delete', function (req, res, next) {
 
     answerModel.findByIdAndDelete(req.query.id, function (err, answerResponse) {
         if (err) {
-            res.send({ status: 500, message: 'Unable to delete the answer' });
+            res.status(500).send({status: 500, message: 'Unable to Delete Answer'});
         } else {
             res.send({ status: 200, message:'Answer deleted successfully', results: answerResponse });
         }
