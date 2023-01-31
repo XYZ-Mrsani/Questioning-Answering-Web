@@ -3,6 +3,7 @@ node_js:
 - "16.13.2"
 
 before_script:
+  - cd /home/travis/build/XYZ-Mrsani/Questioning-Answering-Web/QA-api/
   - export PATH=$PATH:$PWD/node_modules/.bin
 
 install:
