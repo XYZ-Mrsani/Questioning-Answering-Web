@@ -3,7 +3,8 @@ node_js:
 - "16.13.2"
 
 before_script:
-  - cd ./QA-api/
+  before_script:
+  - cd /home/travis/build/XYZ-Mrsani/Questioning-Answering-Web/QA-api/
 
 install:
 - npm install
