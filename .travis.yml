@@ -1,13 +1,28 @@
+#language: node_js
+#node_js:
+#- "16.13.2"
+
+#before_script:
+#  - cd /home/travis/build/XYZ-Mrsani/Questioning-Answering-Web/QA-api/
+#  - export PATH=$PATH:$PWD/node_modules/.bin
+
+#install:
+#- npm install
+
+#script:
+#  - npm test
+
 language: node_js
 node_js:
 - "16.13.2"
 
-before_script:
-  - cd /home/travis/build/XYZ-Mrsani/Questioning-Answering-Web/QA-api/
-  - export PATH=$PATH:$PWD/node_modules/.bin
-
 install:
-- npm install
+- npm install newman
+
+before_script:
+- node --version
+- npm --version
+- node_modules/.bin/newman --version
 
 script:
-  - npm test
+- node_modules/.bin/newman run QA-api/test/postman_collection.json
