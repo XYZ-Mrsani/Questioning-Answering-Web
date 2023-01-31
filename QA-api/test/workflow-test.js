@@ -139,7 +139,7 @@ describe("Search Question", () => {
 
 /*--------------------------------------------------------------Test-Answer---------------------------------------------------------------*/
 
-/*describe("POST Answer", () => {
+describe("POST Answer", () => {
     // After Testing Add Answer Please Comment this Test
     it('Test Add Answesr', (done) => {
 
@@ -153,7 +153,7 @@ describe("Search Question", () => {
             done();
         });
     });
-});*/
+});
 
 describe("View Posted Questions", () => {
     it('Test View Posted Question', (done) => {
@@ -166,7 +166,7 @@ describe("View Posted Questions", () => {
 
 describe("View Answer", () => {
     it('Test View Post Answer', (done) => {
-        chai.request(server).get("/answers/viewqa?id=63d7d2e3823bcc9e855749fd").end((err, res) => {
+        chai.request(server).get("/answers/viewqa?id=63d947e9044bd2e0cc43ea5b").end((err, res) => {
             res.should.have.status(200);
             expect([{answers:res.body.results.answers}]).to.have.deep.members([{ answers:res.body.results.answers }]);
             done();
@@ -188,7 +188,7 @@ describe("Update Answer", () => {
 
         let answer = {
             answer:"Koenigsegg",
-            id: "63d7d2e3823bcc9e855749fd"
+            id: "63d947e9044bd2e0cc43ea5b"
         }
         chai.request(server).put("/answers/update").send(answer).end((err, res) => {
             res.should.have.status(200);
@@ -213,7 +213,7 @@ describe("Update Answer", () => {
 
 /*----------------------------------------------------Test-User------------------------------------------------------------------------*/
 
-describe("POST User", () => {
+/*describe("POST User", () => {
     // After Testing Add User Please Comment this Test
     it('Test Add User', (done) => {
 
@@ -227,7 +227,7 @@ describe("POST User", () => {
             done();
         });
     });
-});
+});*/
 
 describe("Login User", () => {
 
