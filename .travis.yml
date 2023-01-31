@@ -2,9 +2,11 @@ language: node_js
 node_js:
 - "16.13.2"
 
-install:
-- npm install
 before_script:
   - export PATH=$PATH:$PWD/node_modules/.bin
+
+install:
+- npm install
+
 script:
   - npm test
