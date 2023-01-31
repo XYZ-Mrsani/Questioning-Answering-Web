@@ -28,4 +28,4 @@ jobs:
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         run: |
-          newman run postman_collection.json
+          newman run QA-api/test/postman_collection.json
