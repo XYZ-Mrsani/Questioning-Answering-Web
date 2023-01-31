@@ -1,14 +1,30 @@
-language: node_js
-node_js:
-- "16.13.2"
+name: Test-Build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-install:
-- npm install newman
 
-before_script:
-- node --version
-- npm --version
-- node_modules/.bin/newman --version
+      # INstall Node on the runner
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
 
-script:
-- node_modules/.bin/newman run QA-api/test/postman_collection.json
+
+      # Install the newman command line utility and also install the html extra reporter
+      - name: Install newman
+        run: |
+          npm install -g newman
+
+
+      # Run the POSTMAN collection
+      - name: Run POSTMAN collection
+        run: |
+          newman run postman_collection.json
