@@ -1,6 +1,10 @@
 language: node_js
 node_js:
-- 17
+- "16.13.2"
 
-import:
-- ./QA-api/travis.ci.yml
+install:
+- npm install
+before_script:
+  - export PATH=$PATH:$PWD/node_modules/.bin
+script:
+  - npm test
