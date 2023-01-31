@@ -38,10 +38,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/questions/add?username=sanimalli",
+					"raw": "http://localhost:3000/questions/add?username=sanimalli",
 					"protocol": "http",
 					"host": [
-						"127.0.0.1"
+						"localhost"
 					],
 					"port": "3000",
 					"path": [
