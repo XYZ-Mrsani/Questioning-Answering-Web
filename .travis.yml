@@ -5,3 +5,4 @@ node_js:
 script:
   - ls -la
   - cd QA-api
+  - npm test
