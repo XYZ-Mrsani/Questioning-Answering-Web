@@ -5,4 +5,5 @@ node_js:
 script:
   - ls -la
   - cd QA-api
-  - npm test
+    - sudo chmod +x cross-env
+  - ./cross-env NODE_ENV=test npm test
