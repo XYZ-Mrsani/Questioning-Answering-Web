@@ -11,7 +11,7 @@ const assert = require('assert');
 
 chai.use(chaiHttp);
 
-const delay = require('delay')
+const delay = require('delay');
 
 before((done) => {
     //Question.deleteMany({}, function (err) {});
@@ -38,7 +38,6 @@ let pdate = date.toISOString().slice(0, 10);
       return question.save().then(function (question) {
         assert(question.username=='Tom');
       });
-      
     });
   });
 
@@ -66,13 +65,14 @@ let pdate = date.toISOString().slice(0, 10);
 
 describe("GET Q List", () => {
 
-    it('Test Question List, are there any Questions', async () => {
+    it('Test Question List, are there any Questions',async function(done){
         await delay(1000);
         chai.request(server).get("/questions/list").end((err, res) => {
             res.should.have.status(200);
 
             expect(res.body.recordCount).to.be.above(0);
             res.body.results.length.should.be.eql(res.body.recordCount);
+            done();
         });
     });
 });
