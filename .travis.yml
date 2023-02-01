@@ -8,5 +8,4 @@ before_script:
 
 script:
   - ls -la
-  - chmod +x cross-env
-  - sudo ./cross-env NODE_ENV=test npm test
+  - npm test
