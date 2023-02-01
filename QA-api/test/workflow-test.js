@@ -11,6 +11,8 @@ const assert = require('assert');
 
 chai.use(chaiHttp);
 
+const delay = require('delay')
+
 before((done) => {
     //Question.deleteMany({}, function (err) {});
     //User.deleteMany({}, function (err) {});
@@ -29,8 +31,8 @@ var date = new Date();
 let pdate = date.toISOString().slice(0, 10);
 
 describe('Test Question Model', function () {
-    it('create and save question successfully', ()=> {
-
+    it('create and save question successfully',async ()=> {
+        await delay(1000);
       const question = new Question({ username: 'Tom', question: 'What is Unit testing?', date:pdate});
   
       return question.save().then(function (question) {
@@ -40,8 +42,8 @@ describe('Test Question Model', function () {
   });
 
   describe('Test Answer Model', function () {
-    it('create and save Answer successfully', ()=> {
-
+    it('create and save Answer successfully', async ()=> {
+        await delay(1000);
       const answer = new Answer({ username: 'Sani', answers:'Unit Testing is a type of software testing where individual units or components of a software are tested.', date:pdate, pquestion: 'What is Unit testing?'});
   
       return answer.save().then(function (answer) {
@@ -51,8 +53,8 @@ describe('Test Question Model', function () {
   });
 
   describe('Test User Model', function () {
-    it('create and save User successfully', ()=> {
-
+    it('create and save User successfully',async ()=> {
+        await delay(1000);
       const user = new User({ email:"sani@gmail.com", username:"sani", password:"sani12345", title:"Software Developer", aboutme:"Hello Wolrd!", date:pdate});
   
       return user.save().then(function (user) {
@@ -63,13 +65,13 @@ describe('Test Question Model', function () {
 
 describe("GET Q List", () => {
 
-    it('Test Question List, are there any Questions', (done) => {
+    it('Test Question List, are there any Questions', async () => {
+        await delay(1000);
         chai.request(server).get("/questions/list").end((err, res) => {
             res.should.have.status(200);
 
             expect(res.body.recordCount).to.be.above(0);
             res.body.results.length.should.be.eql(res.body.recordCount);
-            done();
         });
     });
 });
