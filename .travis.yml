@@ -4,4 +4,4 @@ node_js:
 
 script:
   - ls -la
-  - cd QA-api/package.json
+  - cd QA-api
