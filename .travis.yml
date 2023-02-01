@@ -1,4 +1,5 @@
 language: node_js
+os: windows
 node_js:
 - "16.13.2"
 
@@ -9,6 +10,7 @@ before_script:
 - node --version
 - npm --version
 - node_modules/.bin/newman --version
+- cd QA-api
 
 script:
 - ls -la
