@@ -10,7 +10,6 @@ before_script:
 - node --version
 - npm --version
 - node_modules/.bin/newman --version
-- cd QA-api
 
 script:
-- ls -la
+- node_modules/.bin/newman run QA-api/test/postman_collection.json
