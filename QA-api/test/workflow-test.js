@@ -66,13 +66,14 @@ let pdate = date.toISOString().slice(0, 10);
 describe("GET Q List", () => {
 
     it('Test Question List, are there any Questions', function(done){
-        
-        chai.request(server).get("/questions/list").end((err, res) => {
-            res.should.have.status(200);
-
-            expect(res.body.recordCount).to.be.above(0);
-            res.body.results.length.should.be.eql(res.body.recordCount);
-            done();
-        });
+        setTimeout(() => {
+            chai.request(server).get("/questions/list").end((err, res) => {
+                res.should.have.status(200);
+    
+                expect(res.body.recordCount).to.be.above(0);
+                res.body.results.length.should.be.eql(res.body.recordCount);
+                done();
+            });
+        }, 1000);
     });
 });
