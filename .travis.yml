@@ -3,13 +3,10 @@ os: windows
 node_js:
 - "16.13.2"
 
-install:
-- npm install newman
-
 before_script:
-- node --version
-- npm --version
-- node_modules/.bin/newman --version
+  - cd QA-api
+  - npm install
 
 script:
-- node_modules/.bin/newman run QA-api/test/postman_collection.json
+  - ls -la
+  - npm test
