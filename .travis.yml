@@ -8,4 +8,4 @@ before_script:
 
 script:
   - ls -la
-  - sudo node_modules/.bin/cross-env NODE_ENV=test npm test
+  - ./node_modules/.bin/cross-env NODE_ENV=test npm test
