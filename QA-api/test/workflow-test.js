@@ -66,7 +66,7 @@ let pdate = date.toISOString().slice(0, 10);
 describe("GET Q List", () => {
 
     it('Test Question List, are there any Questions',async function(done){
-        await delay(1000);
+        await delay(10000);
         chai.request(server).get("/questions/list").end((err, res) => {
             res.should.have.status(200);
 
