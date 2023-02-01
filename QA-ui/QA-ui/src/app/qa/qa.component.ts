@@ -51,6 +51,8 @@ export class QaComponent implements OnInit {
     event.preventDefault();
     const target = event.target
     
+    let Question = window.location.pathname.split("/").pop();
+
     const username = localStorage.getItem('usertoken');
     const answer = target.querySelector(".answer").value;
     const question = target.querySelector('.questionTitle').value;
@@ -64,8 +66,8 @@ export class QaComponent implements OnInit {
       Swal.fire(
         'Answer Added Successfully', '',
         'success'
-    ).then(function(){
-      window.location.href="http://localhost:4200/questions/";
+    ).then(() =>{
+      window.location.href="http://localhost:4200/questions/qa/"+Question;
     });
       console.log(data);
     });
