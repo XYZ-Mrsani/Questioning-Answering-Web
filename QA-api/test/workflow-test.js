@@ -8,6 +8,7 @@ const should = chai.should();
 const chaiHttp = require("chai-http");
 const server = require("../app");
 const assert = require('assert');
+const mongoose = require("mongoose");
 
 chai.use(chaiHttp);
 
@@ -63,17 +64,47 @@ let pdate = date.toISOString().slice(0, 10);
     });
   });*/
 
-describe("GET Q List", () => {
-
-    it('Test Question List, are there any Questions', function(done){
-        setTimeout(() => {
-            chai.request(server).get("/questions/list").end((err, res) => {
-                res.should.have.status(200);
-    
-                expect(res.body.recordCount).to.be.above(0);
-                res.body.results.length.should.be.eql(res.body.recordCount);
-                done();
-            });
-        }, 1000);
+  describe('Question List', function() {
+    before(function() {
+      return new Promise((resolve, reject) => {
+        mongoose.connect('mongodb://localhost/QADBTest', { useNewUrlParser: true });
+        const db = mongoose.connection;
+        db.on('error', console.error.bind(console, 'connection error'));
+        db.once('open', function() {
+          console.log('We are connected to test database!');
+          resolve();
+        });
+      });
     });
-});
+  
+    it('Test Question List, are there any Questions', function() {
+      return new Promise((resolve, reject) => {
+        chai.request(server)
+          .get('/questions/list')
+          .end((err, res) => {
+            if (err) {
+              reject(err);
+            }
+            res.should.have.status(200);
+            expect(res.body.recordCount).to.be.above(0);
+            res.body.results.length.should.be.eql(res.body.recordCount);
+  
+            Question.find({})
+              .then((questions) => {
+                questions.length.should.be.eql(res.body.recordCount);
+                resolve();
+              })
+              .catch((err) => {
+                reject(err);
+              });
+          });
+      });
+    });
+  
+    after(function() {
+      return new Promise((resolve, reject) => {
+        mongoose.connection.close();
+        resolve();
+      });
+    });
+  });
