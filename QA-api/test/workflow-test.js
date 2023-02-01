@@ -31,34 +31,38 @@ var date = new Date();
 let pdate = date.toISOString().slice(0, 10);
 
 describe('Test Question Model', function () {
-    it('create and save question successfully',async ()=> {
+    it('create and save question successfully', (done)=> {
 
       const question = new Question({ username: 'Tom', question: 'What is Unit testing?', date:pdate});
   
       return question.save().then(function (question) {
         assert(question.username=='Tom');
+        done();
       });
+      
     });
   });
 
   describe('Test Answer Model', function () {
-    it('create and save Answer successfully', async ()=> {
+    it('create and save Answer successfully', (done)=> {
 
       const answer = new Answer({ username: 'Sani', answers:'Unit Testing is a type of software testing where individual units or components of a software are tested.', date:pdate, pquestion: 'What is Unit testing?'});
   
       return answer.save().then(function (answer) {
         assert(answer.username=='Sani');
+        done();
       });
     });
   });
 
   describe('Test User Model', function () {
-    it('create and save User successfully',async ()=> {
+    it('create and save User successfully', (done)=> {
 
       const user = new User({ email:"sani@gmail.com", username:"sani", password:"sani12345", title:"Software Developer", aboutme:"Hello Wolrd!", date:pdate});
   
       return user.save().then(function (user) {
         assert(user.username=='sani');
+        done();
       });
     });
   });
