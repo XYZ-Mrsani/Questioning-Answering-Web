@@ -27,5 +27,8 @@ jobs:
 
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
+   env:
+      http_proxy: http://localhost:3000
+        https_proxy: http://localhost:3000
         run: |
-          newman run QA-api/test/postman_collection.json -e QA-api/test/postman_environment.json
+          newman run QA-api/test/postman_collection.json -e QA-api/test/postman_environment.json --global-var "http_proxy=${http_proxy}" --global-var "https_proxy=${https_proxy}"
