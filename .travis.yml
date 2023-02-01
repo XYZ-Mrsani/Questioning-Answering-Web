@@ -3,5 +3,5 @@ node_js:
 - "16.13.2"
 
 script:
-- cd QA-api/package.json
+- cd /home/travis/build/XYZ-Mrsani/Questioning-Answering-Web/QA-api/package.json
 - npm test
