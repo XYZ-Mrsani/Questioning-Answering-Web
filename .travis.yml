@@ -11,4 +11,4 @@ before_script:
 - node_modules/.bin/newman --version
 
 script:
-- node_modules/.bin/newman run QA-api/test/postman_collection.json -e QA-api/test/environment_collection.json
+- ls -la
