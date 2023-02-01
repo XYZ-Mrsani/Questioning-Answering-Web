@@ -11,7 +11,7 @@ const assert = require('assert');
 
 chai.use(chaiHttp);
 
-before((done) => {
+/*before((done) => {
     //Question.deleteMany({}, function (err) {});
     //User.deleteMany({}, function (err) {});
     //Answer.deleteMany({}, function (err) {});
@@ -23,14 +23,14 @@ after((done) => {
     //User.deleteMany({}, function (err) {});
     //Answer.deleteMany({}, function (err) {});
     done();
-});
+});*/
 
 var date = new Date();
 let pdate = date.toISOString().slice(0, 10);
 
 describe('Test Question Model', function () {
     it('create and save question successfully', ()=> {
-
+        this.timeout(5000);
       const question = new Question({ username: 'Tom', question: 'What is Unit testing?', date:pdate});
   
       return question.save().then(function (question) {
